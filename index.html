@@ -9,6 +9,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { 400: '#fb923c', 500: '#f97316', 600: '#ea580c' },
+            accent: { 400: '#34d399', 500: '#10b981', 600: '#059669' },
+            navy: { 950: '#060a12', 900: '#0a0f1d', 850: '#10172a', 800: '#17223b', 700: '#233354' }
+          }
+        }
+      }
+    }
+  </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -17,21 +32,21 @@
     ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
   </style>
 </head>
-<body class="bg-[#060a12] text-slate-100 min-h-screen antialiased selection:bg-orange-500 selection:text-white pb-20">
+<body class="bg-navy-950 text-slate-100 min-h-screen antialiased selection:bg-brand-500 selection:text-white pb-20">
 
   <!-- TOP HEADER -->
-  <header class="border-b border-[#17223b] bg-[#0a0f1d]/90 backdrop-blur sticky top-0 z-40">
+  <header class="border-b border-navy-800 bg-navy-900/90 backdrop-blur sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div id="race-logo-badge" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-500 flex items-center justify-center shadow-lg text-white font-black text-lg tracking-wider">
-          R'27
+        <div id="race-logo-badge" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-sky-500 to-cyan-400 flex items-center justify-center shadow-lg text-white font-black text-lg tracking-wider">
+          L'27
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 id="header-race-title" class="text-base sm:text-lg font-bold text-white tracking-tight">Rotterdam Marathon 2027</h1>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold uppercase tracking-wider">Sub-3:30 Focus</span>
+            <h1 id="header-race-title" class="text-base sm:text-lg font-bold text-white tracking-tight">Leiden Marathon 2027</h1>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 border border-accent-500/30 font-bold uppercase tracking-wider">Sub-3:30 Focus</span>
           </div>
-          <p class="text-xs text-slate-400">Atleet: <span class="text-slate-200 font-medium">Just Overbeek</span> • <span id="header-race-sub">Coolsingel 11 April 2027</span></p>
+          <p class="text-xs text-slate-400">Atleet: <span class="text-slate-200 font-medium">Just Overbeek</span> • <span id="header-race-sub">Vismarkt Leiden 9 Mei 2027</span></p>
         </div>
       </div>
 
@@ -39,33 +54,33 @@
       <div class="flex items-center gap-2 flex-wrap">
         
         <!-- RACE SWITCHER BUTTONS -->
-        <div class="flex bg-[#060a12] p-1 rounded-xl border border-[#17223b]">
-          <button id="btn-race-rotterdam" onclick="switchRaceTarget('rotterdam')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-orange-600 text-white shadow-sm">
-            <i data-lucide="flag" class="w-3.5 h-3.5"></i> Rotterdam (23 W)
+        <div class="flex bg-navy-950 p-1 rounded-xl border border-navy-700/80">
+          <button id="btn-race-leiden" onclick="switchRaceTarget('leiden')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-sky-600 text-white shadow-sm">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Leiden (24 W)
           </button>
-          <button id="btn-race-leiden" onclick="switchRaceTarget('leiden')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sky-400"></i> Leiden (27 W)
+          <button id="btn-race-rotterdam" onclick="switchRaceTarget('rotterdam')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+            <i data-lucide="flag" class="w-3.5 h-3.5 text-brand-400"></i> Rotterdam (20 W)
           </button>
         </div>
 
-        <nav class="flex bg-[#10172a] p-1 rounded-xl border border-[#233354]">
-          <button id="nav-btn-schedule" onclick="switchTab('schedule')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-orange-600 text-white shadow-sm">
-            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Schema (<span id="nav-weeks-count">23</span> W)
+        <nav class="flex bg-navy-850 p-1 rounded-xl border border-navy-700">
+          <button id="nav-btn-schedule" onclick="switchTab('schedule')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-sky-600 text-white shadow-sm">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Schema (<span id="nav-weeks-count">24</span> W)
           </button>
           <button id="nav-btn-activities" onclick="switchTab('activities')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
-            <i data-lucide="activity" class="w-3.5 h-3.5"></i> Mijn Loopjes (<span id="badge-runs-count">1</span>)
+            <i data-lucide="activity" class="w-3.5 h-3.5"></i> Mijn Loopjes (<span id="badge-runs-count">0</span>)
           </button>
           <button id="nav-btn-physio" onclick="switchTab('physio')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5">
-            <i data-lucide="gauge" class="w-3.5 h-3.5 text-emerald-400"></i> Prognose
+            <i data-lucide="gauge" class="w-3.5 h-3.5 text-accent-400"></i> Prognose
           </button>
         </nav>
 
-        <button onclick="openPaceModal()" class="px-2.5 py-1.5 rounded-xl bg-[#17223b] hover:bg-[#233354] text-slate-300 hover:text-white text-xs font-semibold border border-[#233354] transition flex items-center gap-1.5">
-          <i data-lucide="sliders" class="w-3.5 h-3.5 text-orange-400"></i> Zones
+        <button onclick="openPaceModal()" class="px-2.5 py-1.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white text-xs font-semibold border border-navy-700 transition flex items-center gap-1.5">
+          <i data-lucide="sliders" class="w-3.5 h-3.5 text-brand-400"></i> Tempo's
         </button>
 
-        <button onclick="openBackupModal()" class="px-2.5 py-1.5 rounded-xl bg-[#17223b] hover:bg-[#233354] text-emerald-400 hover:text-emerald-300 text-xs font-semibold border border-[#233354] transition flex items-center gap-1.5">
-          <i data-lucide="database" class="w-3.5 h-3.5"></i> Data
+        <button onclick="openBackupModal()" class="px-2.5 py-1.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-accent-400 hover:text-accent-300 text-xs font-semibold border border-navy-700 transition flex items-center gap-1.5" title="Exporteer of importeer jouw trainingsdata">
+          <i data-lucide="database" class="w-3.5 h-3.5"></i> Back-up
         </button>
       </div>
     </div>
@@ -74,182 +89,206 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-6">
 
     <!-- ACTIVE RACE NOTIFICATION BANNER -->
-    <div id="race-info-banner" class="bg-[#0a0f1d] border border-[#17223b] rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
+    <div id="race-info-banner" class="bg-navy-900 border border-navy-800 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
       <div class="flex items-center gap-3">
-        <div id="banner-icon-box" class="p-2.5 rounded-xl bg-orange-500/10 text-orange-400 shrink-0">
+        <div id="banner-icon-box" class="p-2.5 rounded-xl bg-sky-500/10 text-sky-400 shrink-0">
           <i data-lucide="target" class="w-5 h-5"></i>
         </div>
         <div>
-          <h3 id="banner-race-title" class="text-sm font-bold text-white">Doelrace: NN Marathon Rotterdam (11 April 2027)</h3>
-          <p id="banner-race-sub" class="text-xs text-slate-400">23 weken voorbereiding • 22 nov einde veldcompetitie • Geen startbewijs? Klik direct op Leiden (9 mei 2027)!</p>
+          <h3 id="banner-race-title" class="text-sm font-bold text-white">Doelrace: Leiden Marathon (9 Mei 2027) 🏛️</h3>
+          <p id="banner-race-sub" class="text-xs text-slate-400">Schone start vanaf maandag 23 nov 2026 (24 weken) • Veldcompetitie voorbij • Stuur de AI Coach hieronder om je trainingen direct op maat te zetten.</p>
         </div>
       </div>
-      <button id="btn-banner-switch" onclick="toggleRaceQuick()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-[#10172a] hover:bg-[#17223b] text-slate-200 border border-[#233354] transition shrink-0">
-        Wissel naar Leiden
+      <button id="btn-banner-switch" onclick="toggleRaceQuick()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-navy-850 hover:bg-navy-800 text-slate-200 border border-navy-700 transition shrink-0">
+        Wissel naar Rotterdam
       </button>
     </div>
 
     <!-- DASHBOARD KPI OVERVIEW -->
     <section class="grid grid-cols-2 lg:grid-cols-5 gap-3.5">
-      <div class="bg-[#0a0f1d] border border-[#17223b] p-4 rounded-2xl flex flex-col justify-between">
+      <div class="bg-navy-900 border border-navy-800 p-4 rounded-2xl flex flex-col justify-between">
         <span class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
-          <i data-lucide="clock" class="w-3.5 h-3.5 text-orange-400"></i> Tijdlijn
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-sky-400"></i> Tijdlijn
         </span>
         <div class="mt-2 flex items-baseline gap-1">
-          <span id="kpi-weeks-total" class="text-2xl font-black text-white">23</span>
+          <span id="kpi-weeks-total" class="text-2xl font-black text-white">24</span>
           <span class="text-xs text-slate-400">weken</span>
         </div>
-        <p id="kpi-race-date" class="text-[11px] text-slate-500 mt-1">Race: 11 Apr 2027</p>
+        <p id="kpi-race-date" class="text-[11px] text-slate-500 mt-1">Race: 9 Mei 2027</p>
       </div>
 
-      <div class="bg-[#0a0f1d] border border-[#17223b] p-4 rounded-2xl flex flex-col justify-between">
+      <div class="bg-navy-900 border border-navy-800 p-4 rounded-2xl flex flex-col justify-between">
         <span class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
-          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Loop Volume
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-accent-400"></i> Hardloop Volume
         </span>
         <div class="mt-2 flex items-baseline gap-1">
-          <span id="kpi-completed-km" class="text-2xl font-black text-emerald-400">7.5</span>
-          <span class="text-xs text-slate-400">/ <span id="kpi-total-km">650</span> km</span>
+          <span id="kpi-completed-km" class="text-2xl font-black text-accent-400">0.0</span>
+          <span class="text-xs text-slate-400">/ <span id="kpi-total-km">720</span> km</span>
         </div>
-        <div class="w-full bg-[#17223b] h-1.5 rounded-full overflow-hidden mt-1.5">
-          <div id="kpi-progress-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 2%"></div>
+        <div class="w-full bg-navy-800 h-1.5 rounded-full overflow-hidden mt-1.5">
+          <div id="kpi-progress-bar" class="bg-accent-500 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
         </div>
       </div>
 
-      <div class="bg-[#0a0f1d] border border-[#17223b] p-4 rounded-2xl flex flex-col justify-between">
+      <div class="bg-navy-900 border border-navy-800 p-4 rounded-2xl flex flex-col justify-between">
         <span class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
           <i data-lucide="footprints" class="w-3.5 h-3.5 text-amber-400"></i> Langste Duurloop
         </span>
         <div class="mt-2 flex items-baseline gap-1">
-          <span id="kpi-max-longrun" class="text-2xl font-black text-amber-400">7.5</span>
+          <span id="kpi-max-longrun" class="text-2xl font-black text-amber-400">0.0</span>
           <span class="text-xs text-slate-400">km</span>
         </div>
         <p class="text-[11px] text-slate-400 mt-1">Doelpiek: <span class="text-slate-200 font-bold">32.0 km</span></p>
       </div>
 
-      <div class="bg-[#0a0f1d] border border-[#17223b] p-4 rounded-2xl flex flex-col justify-between">
+      <div class="bg-navy-900 border border-navy-800 p-4 rounded-2xl flex flex-col justify-between">
         <span class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
-          <i data-lucide="target" class="w-3.5 h-3.5 text-orange-400"></i> Streeftijd
+          <i data-lucide="target" class="w-3.5 h-3.5 text-brand-400"></i> Streeftijd
         </span>
         <div class="mt-2 flex items-baseline gap-1">
           <span class="text-2xl font-black text-white">3:29:59</span>
         </div>
-        <p class="text-[11px] text-orange-400 font-semibold mt-1">Doeltempo: 4:58 /km</p>
+        <p class="text-[11px] text-brand-400 font-semibold mt-1">Doeltempo: 4:58 /km</p>
       </div>
 
-      <div onclick="switchTab('physio')" class="bg-[#0a0f1d] border border-emerald-500/40 p-4 rounded-2xl flex flex-col justify-between cursor-pointer hover:border-emerald-400 transition group shadow-lg">
+      <div onclick="switchTab('physio')" class="bg-gradient-to-br from-accent-950/40 via-navy-900 to-navy-900 border border-accent-500/40 p-4 rounded-2xl flex flex-col justify-between cursor-pointer hover:border-accent-400 transition group shadow-lg">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-400"></i> Huidige Prognose
+          <span class="text-xs font-bold text-accent-400 flex items-center gap-1.5">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-accent-400"></i> Huidige Prognose
           </span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-emerald-400 opacity-60 group-hover:opacity-100 transition"></i>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-accent-400 opacity-60 group-hover:opacity-100 transition"></i>
         </div>
         <div class="mt-2 flex items-baseline gap-1">
-          <span id="kpi-prognosis-time" class="text-2xl font-black text-emerald-300">3:58:30</span>
+          <span id="kpi-prognosis-time" class="text-2xl font-black text-accent-300">--:--:--</span>
         </div>
-        <p id="kpi-prognosis-pace" class="text-[11px] text-slate-300 font-medium mt-1">Tempo: ~5:39 /km (WHS Model)</p>
+        <p id="kpi-prognosis-pace" class="text-[11px] text-slate-300 font-medium mt-1">Log eerst een run</p>
       </div>
     </section>
 
-    <!-- AI COACH FEEDBACK & PROPOSAL ENGINE -->
-    <section class="bg-[#0a0f1d] border border-[#17223b] rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <!-- INTERACTIVE AI COACH CHAT & SCHEMA ENGINE -->
+    <section class="bg-navy-900 border border-navy-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-navy-800 pb-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center">
-            <i data-lucide="bot" class="w-4 h-4"></i>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-amber-500 text-white flex items-center justify-center shadow-md">
+            <i data-lucide="bot" class="w-5 h-5"></i>
           </div>
           <div>
-            <h2 class="text-sm font-bold text-white">Interactieve AI Coach & Schema-Aanpassing</h2>
-            <p class="text-xs text-slate-400">Verschuif trainingen, meld pijntjes of switch via tekst tussen Rotterdam en Leiden.</p>
+            <h2 class="text-sm font-bold text-white">Interactieve AI Coach & Schema-Assistent</h2>
+            <p class="text-xs text-slate-400">Typ precies wat je wilt veranderen (dagen, weken, kilometers, kuit-herstel of wisselen van race) — en voer het direct door.</p>
           </div>
         </div>
-        <span class="text-[10px] px-2.5 py-1 rounded-lg bg-[#10172a] text-slate-400 border border-[#233354] self-start sm:self-auto">
-          Je behoudt altijd zelf de controle
-        </span>
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <span class="text-[10px] px-2.5 py-1 rounded-lg bg-navy-850 text-slate-400 border border-navy-700/80">
+            Jij beslist (Doorvoeren / Niet doen)
+          </span>
+          <button onclick="clearChatHistory()" class="text-[11px] text-slate-400 hover:text-white px-2.5 py-1 rounded-lg bg-navy-850 border border-navy-700 transition">
+            Chat wissen
+          </button>
+        </div>
       </div>
 
-      <form onsubmit="handleCoachFeedback(event)" class="flex gap-2">
+      <!-- QUICK PROMPT CHIPS -->
+      <div class="flex flex-wrap gap-1.5 text-[11px]">
+        <span class="text-slate-500 py-1 mr-1">Voorbeelden:</span>
+        <button type="button" onclick="fillPrompt('Ik wil voortaan op maandag, donderdag en zondag lopen')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Voortaan ma, do & zo lopen"
+        </button>
+        <button type="button" onclick="fillPrompt('Verplaats in week 2 de dinsdag naar woensdag')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Week 2 dinsdag naar woensdag"
+        </button>
+        <button type="button" onclick="fillPrompt('Maak week 3 de duurloop 14 km')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Week 3 duurloop naar 14 km"
+        </button>
+        <button type="button" onclick="fillPrompt('Verlaag komende 3 weken met 20% voor mijn kuiten')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Komende 3 weken -20% (kuiten)"
+        </button>
+        <button type="button" onclick="fillPrompt('Haal alle fietsritten eruit')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Geen fietsritten"
+        </button>
+      </div>
+
+      <!-- CHAT MESSAGES LOG -->
+      <div id="coach-chat-log" class="space-y-3 max-h-72 overflow-y-auto pr-1">
+        <div class="flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="bg-navy-950 border border-navy-800 rounded-2xl rounded-tl-none p-3.5 text-xs text-slate-200 max-w-3xl leading-relaxed">
+            Hoi Just! Je schema staat nu op <strong class="text-white">0.0 gelopen kilometers</strong> en start fris vanaf <strong class="text-white">maandag 23 november 2026</strong>. Geef hieronder gewoon in normale taal aan wat je wilt veranderen (bijv. vaste loopdagen, afstanden van een specifieke week, of minder volume voor je kuiten) en ik pas het direct aan.
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAT INPUT FORM -->
+      <form onsubmit="handleCoachChat(event)" class="flex gap-2 pt-1">
         <input 
           type="text" 
           id="coach-input" 
-          placeholder="Bijv. 'Schakel naar Leiden', 'Donderdag rustdag', 'Voeg zaterdag loopje toe', of 'Schenen zeuren'..." 
-          class="flex-1 bg-[#060a12] border border-[#233354] rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-orange-500 transition"
+          placeholder="Bijv. 'Ik wil voortaan op maandag, donderdag en zondag lopen', 'Week 1 zondag naar 9 km', of 'Zet week 6 op vakantie'..." 
+          class="flex-1 bg-navy-950 border border-navy-700/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition"
         />
-        <button type="submit" class="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition shrink-0 shadow-lg shadow-orange-500/20">
+        <button type="submit" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition shrink-0 shadow-lg shadow-brand-500/20">
           <i data-lucide="sparkles" class="w-4 h-4"></i> Analyseer
         </button>
       </form>
-
-      <!-- PROPOSAL CARD -->
-      <div id="proposal-box" class="hidden bg-[#060a12] border border-orange-500/50 rounded-xl p-4 mt-3 space-y-3 transition">
-        <div class="flex items-start justify-between gap-3">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span id="proposal-badge" class="text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                Aanpassing
-              </span>
-              <h4 id="proposal-title" class="text-xs sm:text-sm font-bold text-white">Roosterwijziging</h4>
-            </div>
-            <p id="proposal-text" class="text-xs sm:text-sm text-slate-200">Voorsteltekst</p>
-            <p id="proposal-impact" class="text-[11px] text-orange-400 font-semibold italic">Impact</p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row items-center gap-2 shrink-0">
-            <button onclick="acceptProposal()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition shadow-lg">
-              <i data-lucide="check" class="w-3.5 h-3.5"></i> Accepteren
-            </button>
-            <button onclick="declineProposal()" class="w-full sm:w-auto px-3 py-2 rounded-xl bg-[#10172a] hover:bg-[#17223b] text-slate-400 hover:text-white text-xs font-semibold border border-[#233354] transition">
-              Afwijzen
-            </button>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- TOAST NOTIFIER -->
-    <div id="status-toast" class="hidden bg-emerald-950/90 border border-emerald-500/40 rounded-xl p-3.5 flex items-center justify-between shadow-lg">
+    <!-- LIVE NOTIFICATION TOAST/BANNER -->
+    <div id="status-toast" class="hidden bg-accent-950/80 border border-accent-500/40 rounded-xl p-3.5 flex items-center justify-between shadow-lg">
       <div class="flex items-center gap-2.5">
-        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+        <i data-lucide="check-circle" class="w-4 h-4 text-accent-400"></i>
         <p id="status-toast-msg" class="text-xs text-slate-200 font-medium">Wijziging succesvol doorgevoerd.</p>
       </div>
       <button onclick="hideToast()" class="text-xs text-slate-400 hover:text-white p-1">Sluiten</button>
     </div>
 
-    <!-- TAB 1: TRAINING SCHEMA -->
+    <!-- ========================================== -->
+    <!-- TAB 1: TRAINING SCHEMA                     -->
+    <!-- ========================================== -->
     <div id="tab-schedule" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#0a0f1d] p-2 rounded-2xl border border-[#17223b]">
+      
+      <!-- PHASE SELECTION BAR -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-navy-900 p-2 rounded-2xl border border-navy-800">
         <div class="flex flex-wrap gap-1" id="phase-filter-bar">
-          <button onclick="filterPhase('all')" data-filter="all" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-orange-600 text-white shadow-sm">
+          <button onclick="filterPhase('all')" data-filter="all" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-sky-600 text-white shadow-sm">
             Alle Weken
           </button>
-          <button onclick="filterPhase(1)" data-filter="1" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-[#17223b] transition">
-            Fase 1: Basis (Tot 22 Nov)
+          <button onclick="filterPhase(1)" data-filter="1" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition">
+            Fase 1: Basis & Kuit-adaptatie
           </button>
-          <button onclick="filterPhase(2)" data-filter="2" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-[#17223b] transition">
-            Fase 2: Duurbouw
+          <button onclick="filterPhase(2)" data-filter="2" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition">
+            Fase 2: Duurbouw (20 - 32 km)
           </button>
-          <button onclick="filterPhase(3)" data-filter="3" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-[#17223b] transition">
-            Fase 3: Piek & Taper
+          <button onclick="filterPhase(3)" data-filter="3" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition">
+            Fase 3: Specifiek & Taper
           </button>
         </div>
 
         <div class="flex items-center gap-3 px-3 text-xs text-slate-400">
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Voltooid</span>
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#233354]"></span> Gepland</span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-accent-500"></span> Voltooid</span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-navy-600"></span> Gepland</span>
           <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500"></span> Overgeslagen</span>
         </div>
       </div>
 
-      <div id="weeks-list" class="space-y-4"></div>
+      <!-- WEEKS CONTAINER -->
+      <div id="weeks-list" class="space-y-4">
+        <!-- Rendered via renderWeeks() -->
+      </div>
     </div>
 
-    <!-- TAB 2: MIJN LOOPJES TRACKER -->
+    <!-- ========================================== -->
+    <!-- TAB 2: MIJN LOOPJES & SEGMENTEN TRACKER   -->
+    <!-- ========================================== -->
     <div id="tab-activities" class="space-y-6 hidden">
-      <div class="bg-[#0a0f1d] border border-[#17223b] rounded-2xl p-5 shadow-xl space-y-4">
-        <div class="border-b border-[#17223b] pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      
+      <!-- LOG FORM -->
+      <div class="bg-navy-900 border border-navy-800 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="border-b border-navy-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-400"></i>
-              Nieuwe Run of Segment Loggen
+              <i data-lucide="plus-circle" class="w-4 h-4 text-accent-400"></i>
+              Nieuwe Run Loggen
             </h3>
             <p class="text-xs text-slate-400 mt-0.5">Elke gelogde run kalibreert direct je actuele vorm en marathonprognose.</p>
           </div>
@@ -259,22 +298,22 @@
         <form onsubmit="submitNewActivity(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Datum</label>
-            <input type="date" id="act-date" required class="w-full bg-[#060a12] border border-[#233354] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500" />
+            <input type="date" id="act-date" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
 
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Afstand (km)</label>
-            <input type="number" step="0.01" id="act-km" placeholder="bijv. 7.50" required class="w-full bg-[#060a12] border border-[#233354] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500" />
+            <input type="number" step="0.01" id="act-km" placeholder="bijv. 8.00" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
 
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Tijd (mm:ss of uu:mm:ss)</label>
-            <input type="text" id="act-time" placeholder="bijv. 41:07" required class="w-full bg-[#060a12] border border-[#233354] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500" />
+            <input type="text" id="act-time" placeholder="bijv. 44:00" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
 
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Inspanning / Gevoel (RPE)</label>
-            <select id="act-intensity" class="w-full bg-[#060a12] border border-[#233354] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
+            <select id="act-intensity" class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
               <option value="easy">Makkelijk / Rustig (RPE 3-4)</option>
               <option value="moderate" selected>Stabiel / Zone 2 Duur (RPE 5-6)</option>
               <option value="hard">Pittig / Marathontempo (RPE 7-8)</option>
@@ -283,78 +322,140 @@
           </div>
 
           <div class="sm:col-span-2 lg:col-span-1 flex items-end">
-            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition shadow-lg">
+            <button type="submit" class="w-full bg-accent-600 hover:bg-accent-500 text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition shadow-lg shadow-accent-950/30">
               <i data-lucide="save" class="w-3.5 h-3.5"></i> Loop Opslaan
             </button>
           </div>
 
           <div class="sm:col-span-2 lg:col-span-5">
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Gevoel & Details (Schenen, hartslag, route)</label>
-            <input type="text" id="act-note" placeholder="bijv. 'Loop met Thijmen: km 1-7 op 5:29/km, finishkick 500m op 4:55/km. Schenen voelden soepel.'" class="w-full bg-[#060a12] border border-[#233354] rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-orange-500" />
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Gevoel & Details (Kuiten, cadans, route)</label>
+            <input type="text" id="act-note" placeholder="bijv. 'Rustige duurloop, cadans 168 spm, kuiten voelden ontspannen.'" class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
         </form>
       </div>
 
-      <div class="bg-[#0a0f1d] border border-[#17223b] rounded-2xl p-5 shadow-xl space-y-3">
+      <!-- WHS GOLF-HANDICAP STYLE PROGNOSIS BREAKDOWN -->
+      <div id="whs-breakdown-card" class="bg-navy-900 border border-accent-500/30 rounded-2xl p-5 shadow-xl space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-xl bg-accent-500/10 text-accent-400">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h4 class="text-sm font-bold text-white">Rolling Handicap Prognose Algoritme</h4>
+              <p class="text-xs text-slate-400" id="whs-summary-text">Log je eerste training om het model te activeren.</p>
+            </div>
+          </div>
+          <span id="whs-status-badge" class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-accent-500/20 text-accent-300 border border-accent-500/30">
+            Stand-by
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
+          <div class="bg-navy-950 p-3 rounded-xl border border-navy-800">
+            <span class="text-slate-400 block text-[11px]">Beste Prestaties (Sample)</span>
+            <span id="whs-runs-used" class="font-bold text-white text-sm">0 van de 0 runs</span>
+            <p class="text-[10px] text-slate-400 mt-0.5">Filtert off-days & herstelloopjes automatisch weg.</p>
+          </div>
+          <div class="bg-navy-950 p-3 rounded-xl border border-navy-800">
+            <span class="text-slate-400 block text-[11px]">Inspanningscorrectie (RPE)</span>
+            <span id="whs-rpe-impact" class="font-bold text-brand-400 text-sm">Actief</span>
+            <p class="text-[10px] text-slate-400 mt-0.5">Beloon ontspannen tempo's met hogere marathonpotentie.</p>
+          </div>
+          <div class="bg-navy-950 p-3 rounded-xl border border-navy-800">
+            <span class="text-slate-400 block text-[11px]">Duurloop-Maturiteit (+verval)</span>
+            <span id="whs-endurance-penalty" class="font-bold text-amber-400 text-sm">--</span>
+            <p class="text-[10px] text-slate-400 mt-0.5">Bouwt automatisch af naar 0% bij 30+ km runs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVITIES TABLE -->
+      <div class="bg-navy-900 border border-navy-800 rounded-2xl p-5 shadow-xl space-y-3">
         <h4 class="text-sm font-bold text-white flex items-center gap-2">
-          <i data-lucide="history" class="w-4 h-4 text-orange-400"></i>
-          Gelogde Trainingssegmenten
+          <i data-lucide="history" class="w-4 h-4 text-brand-400"></i>
+          Gelogde Trainingssegmenten & Prestaties
         </h4>
+
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs text-slate-300">
-            <thead class="text-[11px] text-slate-400 uppercase bg-[#060a12] border-b border-[#17223b]">
+            <thead class="text-[11px] text-slate-400 uppercase bg-navy-950/60 border-b border-navy-800">
               <tr>
                 <th class="py-3 px-3">Datum</th>
                 <th class="py-3 px-3">Afstand</th>
                 <th class="py-3 px-3">Tijd</th>
                 <th class="py-3 px-3">Tempo</th>
                 <th class="py-3 px-3">Type</th>
-                <th class="py-3 px-3">Notities</th>
+                <th class="py-3 px-3">Notities & Segmenten</th>
                 <th class="py-3 px-3 text-right">Actie</th>
               </tr>
             </thead>
-            <tbody id="activities-table-body" class="divide-y divide-[#17223b] font-medium"></tbody>
+            <tbody id="activities-table-body" class="divide-y divide-navy-800/60 font-medium">
+              <!-- Dynamically rendered -->
+            </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- TAB 3: FYSIOLOGIE & PROGNOSE -->
+    <!-- ========================================== -->
+    <!-- TAB 3: FYSIOLOGIE & PROGNOSE ANALYSE       -->
+    <!-- ========================================== -->
     <div id="tab-physio" class="space-y-6 hidden">
-      <div class="bg-[#0a0f1d] border border-[#17223b] rounded-2xl p-6 shadow-xl space-y-6">
+      
+      <div class="bg-navy-900 border border-navy-800 rounded-2xl p-6 shadow-xl space-y-6">
         <div>
           <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <i data-lucide="activity-square" class="w-5 h-5 text-emerald-400"></i>
+            <i data-lucide="activity-square" class="w-5 h-5 text-accent-400"></i>
             Fysiologische Debuutprognose & Doelrace Analyse
           </h3>
-          <p class="text-xs text-slate-400 mt-1">Gekoppeld aan jouw actuele vorm en afstandsopbouw.</p>
+          <p class="text-xs text-slate-400 mt-1">
+            Gekoppeld aan jouw actuele vorm, actieve marathon en afstandsopbouw. Log eerst een training onder 'Mijn Loopjes'.
+          </p>
         </div>
 
+        <!-- 4 Race Predictions Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-[#060a12] border border-[#17223b] p-4 rounded-xl space-y-1">
-            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 5 KM</span>
-            <div class="text-2xl font-black text-white">~23:05</div>
-            <p class="text-xs text-orange-400 font-semibold">Tempo: 4:37 /km</p>
+          <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 5 KM All-Out</span>
+            <div id="physio-5k" class="text-2xl font-black text-white">--:--</div>
+            <p id="physio-5k-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p class="text-[11px] text-slate-400">Berekend vanuit je beste recente temposessie.</p>
           </div>
 
-          <div class="bg-[#060a12] border border-[#17223b] p-4 rounded-xl space-y-1">
-            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 10 KM</span>
-            <div class="text-2xl font-black text-white">~49:30</div>
-            <p class="text-xs text-orange-400 font-semibold">Tempo: 4:57 /km</p>
+          <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 10 KM Wedstrijd</span>
+            <div id="physio-10k" class="text-2xl font-black text-white">--:--</div>
+            <p id="physio-10k-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p class="text-[11px] text-slate-400">Doorgetrokken op aerobe drempelwaarde.</p>
           </div>
 
-          <div class="bg-[#060a12] border border-[#17223b] p-4 rounded-xl space-y-1">
-            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Halve Marathon</span>
-            <div class="text-2xl font-black text-white">~1:51:15</div>
-            <p class="text-xs text-orange-400 font-semibold">Tempo: 5:16 /km</p>
+          <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte Halve Marathon</span>
+            <div id="physio-hm" class="text-2xl font-black text-white">--:--:--</div>
+            <p id="physio-hm-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p class="text-[11px] text-slate-400">Realistisch omslagpunt met je fietsconditie.</p>
           </div>
 
-          <div class="bg-gradient-to-br from-emerald-950/60 to-[#060a12] border border-emerald-500/40 p-4 rounded-xl space-y-1">
-            <span class="text-[11px] uppercase tracking-wider text-emerald-400 font-bold">Marathon Prognose Nu</span>
-            <div id="physio-marathon-time" class="text-2xl font-black text-emerald-300">3:58:30</div>
-            <p id="physio-marathon-pace" class="text-xs text-emerald-400 font-bold">Tempo: ~5:39 /km</p>
+          <div class="bg-gradient-to-br from-accent-950/60 to-navy-950 border border-accent-500/40 p-4 rounded-xl space-y-1">
+            <span class="text-[11px] uppercase tracking-wider text-accent-400 font-bold">Marathon Prognose Nu</span>
+            <div id="physio-marathon-time" class="text-2xl font-black text-accent-300">--:--:--</div>
+            <p id="physio-marathon-pace" class="text-xs text-accent-400 font-bold">Wacht op eerste run</p>
+            <p class="text-[11px] text-slate-300">Inclusief debutantenverval op basis van langste run.</p>
           </div>
         </div>
+
+        <!-- EXPLANATION BANNER -->
+        <div class="bg-navy-950 border border-navy-800 p-5 rounded-2xl space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-brand-400"></i>
+            Leiden (9 Mei) vs. Rotterdam (11 April)
+          </h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Met <strong class="text-white">Leiden (9 mei 2027)</strong> heb je <strong class="text-sky-400">24 weken</strong> vanaf 23 november. Die 4 extra weken geven je kuiten en pezen precies de extra adaptatietijd die nodig is om richting 30–32 km te bouwen zonder kramp of overbelasting. Mocht je alsnog via herverkoop een ticket voor <strong class="text-white">Rotterdam (11 april 2027)</strong> pakken, schakel je bovenin met één klik over naar het 20-wekenschema.
+          </p>
+        </div>
+
       </div>
     </div>
 
@@ -362,32 +463,60 @@
 
   <!-- PACE MODAL -->
   <div id="pace-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#0a0f1d] border border-[#233354] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
-      <div class="flex justify-between items-center border-b border-[#17223b] pb-3">
+    <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+      <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 class="text-base font-bold text-white flex items-center gap-2">
-          <i data-lucide="sliders" class="w-4 h-4 text-orange-400"></i>
+          <i data-lucide="sliders" class="w-4 h-4 text-brand-400"></i>
           Sub-3:30 Trainingszones Just
         </h3>
         <button onclick="closePaceModal()" class="text-slate-400 hover:text-white p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
+
       <div class="space-y-2.5 text-xs">
-        <div class="bg-[#060a12] p-3 rounded-xl border border-[#17223b] flex justify-between items-center">
-          <div><p class="font-bold text-white">Marathontempo (MP)</p><p class="text-slate-400 text-[11px]">Wedstrijdtempo</p></div>
-          <div class="text-right"><p class="font-black text-orange-400 text-sm">4:55 – 4:58 /km</p><p class="text-slate-400 text-[11px]">12.1 km/u</p></div>
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-white">Marathontempo (MP)</p>
+            <p class="text-slate-400 text-[11px]">Wedstrijdtempo Sub-3:30</p>
+          </div>
+          <div class="text-right">
+            <p class="font-black text-brand-400 text-sm">4:55 – 4:58 /km</p>
+            <p class="text-slate-400 text-[11px]">12.1 km/u</p>
+          </div>
         </div>
-        <div class="bg-[#060a12] p-3 rounded-xl border border-[#17223b] flex justify-between items-center">
-          <div><p class="font-bold text-white">Rustige Duurloop (Zone 2)</p><p class="text-slate-400 text-[11px]">Vetverbranding & peesbescherming</p></div>
-          <div class="text-right"><p class="font-black text-emerald-400 text-sm">5:30 – 5:45 /km</p><p class="text-slate-400 text-[11px]">Praattempo</p></div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-white">Rustige Duurloop (Zone 2)</p>
+            <p class="text-slate-400 text-[11px]">Kuit- & peesbescherming</p>
+          </div>
+          <div class="text-right">
+            <p class="font-black text-accent-400 text-sm">5:30 – 5:45 /km</p>
+            <p class="text-slate-400 text-[11px]">Cadans 168+ spm</p>
+          </div>
         </div>
-        <div class="bg-[#060a12] p-3 rounded-xl border border-[#17223b] flex justify-between items-center">
-          <div><p class="font-bold text-white">Drempel / Intervallen</p><p class="text-slate-400 text-[11px]">VO2max prikkel</p></div>
-          <div class="text-right"><p class="font-black text-amber-400 text-sm">4:20 – 4:35 /km</p><p class="text-slate-400 text-[11px]">Kwaliteit</p></div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-white">Drempel / 1k Intervallen</p>
+            <p class="text-slate-400 text-[11px]">VO2max prikkel</p>
+          </div>
+          <div class="text-right">
+            <p class="font-black text-amber-400 text-sm">4:20 – 4:35 /km</p>
+            <p class="text-slate-400 text-[11px]">Kwaliteit</p>
+          </div>
         </div>
-        <div class="bg-[#060a12] p-3 rounded-xl border border-[#17223b] flex justify-between items-center">
-          <div><p class="font-bold text-white">Racefiets Duurrit</p><p class="text-slate-400 text-[11px]">Cardio zonder botsing</p></div>
-          <div class="text-right"><p class="font-black text-sky-400 text-sm">27 – 29 km/u</p><p class="text-slate-400 text-[11px]">Herstel & motor</p></div>
+
+        <div class="bg-navy-950 p-3 rounded-xl border border-navy-800 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-white">Racefiets Duurrit</p>
+            <p class="text-slate-400 text-[11px]">Cardio zonder botsing</p>
+          </div>
+          <div class="text-right">
+            <p class="font-black text-sky-400 text-sm">27 – 29 km/u</p>
+            <p class="text-slate-400 text-[11px]">Herstel & motor</p>
+          </div>
         </div>
       </div>
     </div>
@@ -395,15 +524,17 @@
 
   <!-- WORKOUT DETAIL MODAL -->
   <div id="workout-detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#0a0f1d] border border-[#233354] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
-      <div class="flex justify-between items-start border-b border-[#17223b] pb-3">
+    <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-start border-b border-navy-800 pb-3">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span id="detail-type-badge" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">Interval</span>
+            <span id="detail-type-badge" class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-brand-500/20 text-brand-400 border border-brand-500/30">
+              Training
+            </span>
             <span id="detail-day-badge" class="text-xs text-slate-400 font-semibold">Dinsdag</span>
           </div>
-          <h3 id="detail-title" class="text-base font-extrabold text-white">Training</h3>
-          <p id="detail-sub" class="text-xs text-orange-400 font-semibold"></p>
+          <h3 id="detail-title" class="text-base font-extrabold text-white">Duurloop</h3>
+          <p id="detail-sub" class="text-xs text-brand-400 font-semibold">Doeltempo: 5:35 /km</p>
         </div>
         <button onclick="closeWorkoutDetailModal()" class="text-slate-400 hover:text-white p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -411,73 +542,92 @@
       </div>
 
       <div class="space-y-3 text-xs">
-        <div class="bg-[#060a12] p-3.5 rounded-xl border border-[#17223b] space-y-1">
+        <div class="bg-navy-950 p-3.5 rounded-xl border border-navy-800 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-amber-400 text-[11px] uppercase tracking-wider">
-            <i data-lucide="flame" class="w-3.5 h-3.5"></i> 1. Warming-up
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i> 1. Warming-up (15 - 20 min)
           </div>
-          <p id="detail-warmup" class="text-slate-300 leading-relaxed"></p>
+          <p id="detail-warmup" class="text-slate-300 leading-relaxed">
+            1.5 tot 2.0 km rustig inlopen.
+          </p>
         </div>
-        <div class="bg-[#060a12] p-3.5 rounded-xl border border-orange-500/30 space-y-1">
-          <div class="flex items-center gap-1.5 font-bold text-orange-400 text-[11px] uppercase tracking-wider">
-            <i data-lucide="timer" class="w-3.5 h-3.5"></i> 2. De Kern
+
+        <div class="bg-navy-950 p-3.5 rounded-xl border border-brand-500/30 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-brand-400 text-[11px] uppercase tracking-wider">
+            <i data-lucide="timer" class="w-3.5 h-3.5"></i> 2. De Kern (Doeltempo & Ritme)
           </div>
-          <p id="detail-core" class="text-white font-medium leading-relaxed"></p>
+          <p id="detail-core" class="text-white font-medium leading-relaxed">
+            Training op doeltempo.
+          </p>
         </div>
-        <div class="bg-[#060a12] p-3.5 rounded-xl border border-[#17223b] space-y-1">
+
+        <div class="bg-navy-950 p-3.5 rounded-xl border border-navy-800 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-sky-400 text-[11px] uppercase tracking-wider">
-            <i data-lucide="wind" class="w-3.5 h-3.5"></i> 3. Cooling-down
+            <i data-lucide="wind" class="w-3.5 h-3.5"></i> 3. Cooling-down & Uitlopen
           </div>
-          <p id="detail-cooldown" class="text-slate-300 leading-relaxed"></p>
+          <p id="detail-cooldown" class="text-slate-300 leading-relaxed">
+            1.0 km op praattempo uitdribbelen.
+          </p>
         </div>
-        <div class="bg-emerald-950/40 p-3.5 rounded-xl border border-emerald-500/30 space-y-1">
-          <div class="flex items-center gap-1.5 font-bold text-emerald-400 text-[11px] uppercase tracking-wider">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Scheenbeen- & Hersteltip
+
+        <div class="bg-accent-950/40 p-3.5 rounded-xl border border-accent-500/30 space-y-1">
+          <div class="flex items-center gap-1.5 font-bold text-accent-400 text-[11px] uppercase tracking-wider">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Kuit- & Techniektip
           </div>
-          <p id="detail-shin-tip" class="text-slate-200 leading-relaxed"></p>
+          <p id="detail-shin-tip" class="text-slate-200 leading-relaxed">
+            Cadans 168+ spm.
+          </p>
         </div>
       </div>
 
-      <div class="pt-2 border-t border-[#17223b] flex justify-between items-center">
+      <div class="pt-2 border-t border-navy-800 flex justify-between items-center">
         <span class="text-[11px] text-slate-500">Just Overbeek Marathon Prep</span>
-        <button onclick="closeWorkoutDetailModal()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl transition">
-          Begrepen!
+        <button onclick="closeWorkoutDetailModal()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl transition">
+          Begrepen, let's run!
         </button>
       </div>
     </div>
   </div>
 
-  <!-- BACKUP MODAL -->
+  <!-- BACKUP & DATA MODAL -->
   <div id="backup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#0a0f1d] border border-[#233354] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
-      <div class="flex justify-between items-center border-b border-[#17223b] pb-3">
+    <div class="bg-navy-900 border border-navy-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+      <div class="flex justify-between items-center border-b border-navy-800 pb-3">
         <h3 class="text-base font-bold text-white flex items-center gap-2">
-          <i data-lucide="database" class="w-4 h-4 text-emerald-400"></i>
+          <i data-lucide="database" class="w-4 h-4 text-accent-400"></i>
           Back-up & Voortgang Beheer
         </h3>
         <button onclick="closeBackupModal()" class="text-slate-400 hover:text-white p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
+
       <div class="space-y-3 text-xs">
-        <div class="bg-[#060a12] p-4 rounded-xl border border-[#17223b] space-y-2">
+        <p class="text-slate-300 leading-relaxed">
+          Gegevens worden bewaard in je browser. Exporteer of importeer jouw `.json` bestandje om je schema over te zetten tussen laptop en telefoon.
+        </p>
+
+        <div class="bg-navy-950 p-4 rounded-xl border border-navy-800 space-y-2">
           <div class="flex items-center justify-between">
             <div>
               <p class="font-bold text-white text-xs">1. Exporteer Back-upbestand</p>
-              <p class="text-slate-400 text-[11px]">Download een `.json` bestand met alle data van beide schema's.</p>
+              <p class="text-slate-400 text-[11px]">Download direct een `.json` bestand met al je vorderingen en runs.</p>
             </div>
-            <button onclick="exportDataBackup()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition">
+            <button onclick="exportDataBackup()" class="px-3.5 py-2 rounded-xl bg-accent-600 hover:bg-accent-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-lg">
               <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
             </button>
           </div>
         </div>
-        <div class="bg-[#060a12] p-4 rounded-xl border border-[#17223b] space-y-2">
+
+        <div class="bg-navy-950 p-4 rounded-xl border border-navy-800 space-y-2">
           <p class="font-bold text-white text-xs">2. Importeer Back-upbestand</p>
-          <input type="file" id="import-file-input" accept=".json" onchange="importDataBackup(event)" class="block w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#17223b] file:text-slate-200 cursor-pointer" />
+          <p class="text-slate-400 text-[11px]">Laad een eerder gedownload `.json` bestand in.</p>
+          <input type="file" id="import-file-input" accept=".json" onchange="importDataBackup(event)" class="block w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-navy-800 file:text-slate-200 cursor-pointer" />
         </div>
+
         <div class="pt-2 flex justify-between items-center text-[11px]">
-          <span class="text-slate-500">Schema resetten?</span>
+          <span class="text-slate-500">Helemaal opnieuw op 0 beginnen?</span>
           <button onclick="resetToDefaults()" class="text-rose-400 hover:text-rose-300 font-semibold underline">
-            Reset actief schema
+            Reset schema & wis loopjes
           </button>
         </div>
       </div>
@@ -486,48 +636,59 @@
 
   <!-- CONFLICT MODAL -->
   <div id="conflict-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#0a0f1d] border border-amber-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <div class="bg-navy-900 border border-amber-500/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
       <div class="flex items-start gap-3">
         <div class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 shrink-0 mt-0.5">
           <i data-lucide="alert-triangle" class="w-5 h-5"></i>
         </div>
         <div>
           <h3 class="text-base font-bold text-white">Dag bezet! Wat wil je doen?</h3>
-          <p class="text-xs text-slate-300 mt-1" id="conflict-desc"></p>
+          <p class="text-xs text-slate-300 mt-1" id="conflict-desc">
+            Je wilt een training verplaatsen naar een dag die al gepland staat.
+          </p>
         </div>
       </div>
-      <div id="conflict-shin-alert" class="hidden bg-rose-500/10 border border-rose-500/30 p-3 rounded-xl text-xs text-rose-300 flex items-start gap-2">
-        <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
-        <span><strong>Scheen-waarschuwing:</strong> Hardlopen direct voor/op een hockeydag verhoogt het risico op shin splints drastisch!</span>
-      </div>
+
       <div class="space-y-2 pt-1">
-        <button onclick="resolveConflict('swap')" class="w-full text-left p-3 rounded-xl bg-[#060a12] hover:bg-[#10172a] border border-[#17223b] hover:border-orange-500 transition group flex items-center justify-between">
+        <button onclick="resolveConflict('swap')" class="w-full text-left p-3 rounded-xl bg-navy-950 hover:bg-navy-850 border border-navy-800 hover:border-brand-500 transition group flex items-center justify-between">
           <div>
-            <div class="text-xs font-bold text-white group-hover:text-orange-400 flex items-center gap-1.5">
-              <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-orange-400"></i> Dagen omwisselen (Swap)
+            <div class="text-xs font-bold text-white group-hover:text-brand-400 flex items-center gap-1.5">
+              <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-brand-400"></i>
+              Dagen omwisselen (Swap)
             </div>
-            <p class="text-[11px] text-slate-400 mt-0.5" id="conflict-swap-sub"></p>
+            <p class="text-[11px] text-slate-400 mt-0.5" id="conflict-swap-sub">Verhuis de bestaande training naar de vrijgekomen dag.</p>
           </div>
-          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-orange-400"></i>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-brand-400"></i>
         </button>
-        <button onclick="resolveConflict('move-free')" class="w-full text-left p-3 rounded-xl bg-[#060a12] hover:bg-[#10172a] border border-[#17223b] hover:border-sky-500 transition group flex items-center justify-between">
+
+        <button onclick="resolveConflict('move-free')" class="w-full text-left p-3 rounded-xl bg-navy-950 hover:bg-navy-850 border border-navy-800 hover:border-sky-500 transition group flex items-center justify-between">
           <div>
             <div class="text-xs font-bold text-white group-hover:text-sky-400 flex items-center gap-1.5">
-              <i data-lucide="calendar-plus" class="w-3.5 h-3.5 text-sky-400"></i> Bestaande naar andere vrije dag
+              <i data-lucide="calendar-plus" class="w-3.5 h-3.5 text-sky-400"></i>
+              Bestaande training naar andere vrije dag
             </div>
+            <p class="text-[11px] text-slate-400 mt-0.5">Zoekt automatisch een rustdag in dezelfde week.</p>
           </div>
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-sky-400"></i>
         </button>
-        <button onclick="resolveConflict('skip')" class="w-full text-left p-3 rounded-xl bg-[#060a12] hover:bg-[#10172a] border border-[#17223b] hover:border-rose-500 transition group flex items-center justify-between">
+
+        <button onclick="resolveConflict('skip')" class="w-full text-left p-3 rounded-xl bg-navy-950 hover:bg-navy-850 border border-navy-800 hover:border-rose-500 transition group flex items-center justify-between">
           <div>
             <div class="text-xs font-bold text-white group-hover:text-rose-400 flex items-center gap-1.5">
-              <i data-lucide="slash" class="w-3.5 h-3.5 text-rose-400"></i> Bestaande overslaan (Rust)
+              <i data-lucide="slash" class="w-3.5 h-3.5 text-rose-400"></i>
+              Bestaande training overslaan (Rust)
             </div>
+            <p class="text-[11px] text-slate-400 mt-0.5">Schrap de conflicterende sessie van deze week.</p>
           </div>
           <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-rose-400"></i>
         </button>
+
+        <button onclick="resolveConflict('stack')" class="w-full text-left p-2.5 rounded-xl bg-navy-950/60 hover:bg-navy-950 text-[11px] text-slate-400 hover:text-slate-200 transition">
+          Beide doen op dezelfde dag (Dubbele training)
+        </button>
       </div>
-      <div class="pt-2 border-t border-[#17223b] flex justify-end">
+
+      <div class="pt-2 border-t border-navy-800 flex justify-end">
         <button onclick="closeConflictModal()" class="px-3 py-1.5 text-xs text-slate-400 hover:text-white rounded-lg transition">Annuleren</button>
       </div>
     </div>
@@ -537,294 +698,239 @@
   <script>
     const DAYS_ORDER = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"];
 
-    // 1. ROTTERDAM 23-WEEK PLAN
-    const ROTTERDAM_PLAN = [
+    // SCHONE START VANAF MAANDAG 23 NOV 2026 (ALLE WORKOUTS OP 'planned' EN 0 GELOGDE RUNS)
+    // LEIDEN MARATHON: 9 MEI 2027 (24 WEKEN VANAF 23 NOV 2026)
+    const LEIDEN_CLEAN_PLAN = [
       {
-        id: 1, title: "Week 1: Herstart & Rustige Opbouw", dateRange: "3 Nov - 9 Nov 2026", phase: 1, isOffWeek: false,
+        id: 1, title: "Week 1: Kuit-Adaptatie & Cadans Focus", dateRange: "23 Nov - 29 Nov 2026", phase: 1, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Basis Duurloop + Versnelling", type: "run", km: 7.5, originalKm: 7.5, pace: "5:29 /km", note: "Laatste 500m versneld naar 4:55 /km", status: "completed" },
-          { day: "Woensdag", title: "Wielrennen Duurrit", type: "bike", km: 27, originalKm: 27, time: "55 min", pace: "28.5 km/u", note: "Aerobe motor zonder peesbelasting", status: "completed" },
-          { day: "Donderdag", title: "Rustige Duurloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Schenen controleren", status: "planned" },
-          { day: "Vrijdag", title: "Hockeytraining", type: "hockey", km: 0, originalKm: 0, note: "Baanimpact & wendbaarheid", status: "planned" },
-          { day: "Zondag", title: "Hockeywedstrijd", type: "hockey", km: 0, originalKm: 0, note: "Matchday competitie", status: "planned" }
+          { day: "Dinsdag", title: "Ontspannen Duurloop (Cadans 168+)", type: "run", km: 7.5, originalKm: 7.5, pace: "5:35 /km", note: "Korte passen, niet op tenen veren", status: "planned" },
+          { day: "Woensdag", title: "Wielrennen Herstelrit", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "28 km/u", note: "Aerobe motor zonder botsing", status: "planned" },
+          { day: "Donderdag", title: "Rustige Duurloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Kuiten ontspannen houden", status: "planned" },
+          { day: "Zondag", title: "Zondagduurloop: 11 km", type: "run", km: 11.0, originalKm: 11.0, pace: "5:40 /km", note: "Praattempo Zone 2", status: "planned" }
         ]
       },
       {
-        id: 2, title: "Week 2: Volume Uitbreiden", dateRange: "10 Nov - 16 Nov 2026", phase: 1, isOffWeek: false,
+        id: 2, title: "Week 2: Rustig Volume Opbouwen", dateRange: "30 Nov - 6 Dec 2026", phase: 1, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Kwaliteit: 4x 1km Tempo", type: "run", km: 7.0, originalKm: 7.0, pace: "4:45 /km", note: "Inlopen & uitlopen 1.5km", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Losfietsen", type: "bike", km: 30, originalKm: 30, time: "65 min", pace: "28 km/u", note: "Benen losdraaien", status: "planned" },
-          { day: "Donderdag", title: "Lange Duurloop 1", type: "run", km: 10.0, originalKm: 10.0, pace: "5:35 /km", note: "Eerste keer 10 km aantikken", status: "planned" },
-          { day: "Vrijdag", title: "Hockeytraining", type: "hockey", km: 0, originalKm: 0, note: "Techniek & partij", status: "planned" },
-          { day: "Zondag", title: "Hockeywedstrijd", type: "hockey", km: 0, originalKm: 0, note: "Matchday competitie", status: "planned" }
+          { day: "Dinsdag", title: "Kwaliteit: 4x 1km Vlot", type: "run", km: 8.5, originalKm: 8.5, pace: "4:45 /km", note: "2 km in- & uitlopen", status: "planned" },
+          { day: "Woensdag", title: "Wielrennen Duur", type: "bike", km: 32, originalKm: 32, time: "65 min", pace: "28 km/u", note: "Benen losdraaien", status: "planned" },
+          { day: "Donderdag", title: "Tussenduurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Stabiel ritme", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:35 /km", note: "Geen eindsprint forceren", status: "planned" }
         ]
       },
       {
-        id: 3, title: "Week 3: Laatste Competitieweekend (22 Nov)", dateRange: "17 Nov - 23 Nov 2026", phase: 1, isOffWeek: false,
+        id: 3, title: "Week 3: Doorbouwen naar 15 km", dateRange: "7 Dec - 13 Dec 2026", phase: 1, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Marathontempo Blok: 5 km", type: "run", km: 8.0, originalKm: 8.0, pace: "4:58 /km", note: "Ritme vastleggen", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Duur", type: "bike", km: 32, originalKm: 32, time: "70 min", pace: "29 km/u", note: "Cardio", status: "planned" },
-          { day: "Donderdag", title: "Rustige Duurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Sparen voor zondag", status: "planned" },
-          { day: "Vrijdag", title: "Hockeytraining", type: "hockey", km: 0, originalKm: 0, note: "Laatste veldtraining", status: "planned" },
-          { day: "Zondag 22 Nov", title: "LAATSTE HOCKEYWEDSTRIJD 🏑", type: "hockey", km: 0, originalKm: 0, note: "Einde competitiehelft! Hierna start winterstop.", status: "planned" }
+          { day: "Dinsdag", title: "Marathontempo Blok: 3x 2km", type: "run", km: 9.5, originalKm: 9.5, pace: "4:55 /km", note: "90 sec wandelpauze", status: "planned" },
+          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Herstel", status: "planned" },
+          { day: "Donderdag", title: "Zone 2 Duurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 15 km", type: "run", km: 15.0, originalKm: 15.0, pace: "5:35 /km", note: "Eerste keer sportgel testen", status: "planned" }
         ]
       },
       {
-        id: 4, title: "Week 4: Start Winterstop & Extra Loopvolume", dateRange: "24 Nov - 30 Nov 2026", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Intervallen: 5x 1km", type: "run", km: 8.5, originalKm: 8.5, pace: "4:30 /km", note: "200m dribbelpauze", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Cardio herstel", status: "planned" },
-          { day: "Donderdag", title: "Tussenduurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Geen hockey meer!", status: "planned" },
-          { day: "Zondag", title: "Eerste Zondagduurloop: 13.5 km", type: "run", km: 13.5, originalKm: 13.5, pace: "5:35 /km", note: "Startpunt zondagduurlopen", status: "planned" }
-        ]
-      },
-      {
-        id: 5, title: "Week 5: Doorbouwen naar 15 km", dateRange: "1 Dec - 7 Dec 2026", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "3x 2km Marathontempo", type: "run", km: 9.5, originalKm: 9.5, pace: "4:55 /km", note: "90s herstel", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen / Duur", type: "bike", km: 35, originalKm: 35, time: "75 min", pace: "28 km/u", note: "Aerobe basis", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duurloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Lichte pas", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 15 km", type: "run", km: 15.0, originalKm: 15.0, pace: "5:35 /km", note: "Sportgel testen", status: "planned" }
-        ]
-      },
-      {
-        id: 6, title: "Week 6: Doorbouwen naar 17 km", dateRange: "8 Dec - 14 Dec 2026", phase: 2, isOffWeek: false,
+        id: 4, title: "Week 4: De 17 km Mijlpaal", dateRange: "14 Dec - 20 Dec 2026", phase: 1, isOffWeek: false,
         workouts: [
           { day: "Dinsdag", title: "4x 1.5km MP Blokken", type: "run", km: 10.0, originalKm: 10.0, pace: "4:55 /km", note: "Ritme vasthouden", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Herstel", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Benen los", status: "planned" },
           { day: "Donderdag", title: "Tussenduurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Vlot en constant", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 17 km", type: "run", km: 17.0, originalKm: 17.0, pace: "5:35 /km", note: "Vetverbranding stimuleren", status: "planned" }
+          { day: "Zondag", title: "Lange Duurloop: 17 km", type: "run", km: 17.0, originalKm: 17.0, pace: "5:35 /km", note: "Vetverbranding", status: "planned" }
         ]
       },
       {
-        id: 7, title: "Week 7: De 19 km Mijlpaal", dateRange: "15 Dec - 21 Dec 2026", phase: 2, isOffWeek: false,
+        id: 5, title: "Week 5: Kerst Herstelweek (Cutback)", dateRange: "21 Dec - 27 Dec 2026", phase: 1, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Progressieloop 9 km", type: "run", km: 9.0, originalKm: 9.0, pace: "5:20 -> 4:45 /km", note: "Versnellen per 3 km", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen", type: "bike", km: 35, originalKm: 35, time: "75 min", pace: "28 km/u", note: "Conditie", status: "planned" },
-          { day: "Donderdag", title: "Herstelloop", type: "run", km: 8.0, originalKm: 8.0, pace: "5:40 /km", note: "Ontspannen", status: "planned" },
+          { day: "Dinsdag", title: "Korte Tempoprikkel", type: "run", km: 7.5, originalKm: 7.5, pace: "4:50 /km", note: "Scherpte houden", status: "planned" },
+          { day: "Donderdag", title: "Licht Duurloopje", type: "run", km: 7.0, originalKm: 7.0, pace: "5:35 /km", note: "Genieten", status: "planned" },
+          { day: "Zondag", title: "Herstelduurloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:40 /km", note: "Pees- en spierherstel", status: "planned" }
+        ]
+      },
+      {
+        id: 6, title: "Week 6: Oud & Nieuw -> 19 km", dateRange: "28 Dec - 3 Jan 2027", phase: 2, isOffWeek: false,
+        workouts: [
+          { day: "Dinsdag", title: "Progressieloop 9 km", type: "run", km: 9.0, originalKm: 9.0, pace: "5:25 -> 4:50 /km", note: "Laatste 3 km vlot", status: "planned" },
+          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Soepel", status: "planned" },
           { day: "Zondag", title: "Lange Duurloop: 19 km", type: "run", km: 19.0, originalKm: 19.0, pace: "5:35 /km", note: "2 gels meenemen", status: "planned" }
         ]
       },
       {
-        id: 8, title: "Week 8: Kerst Herstelweek (Cutback)", dateRange: "22 Dec - 28 Dec 2026", phase: 2, isOffWeek: false,
+        id: 7, title: "Week 7: De Halve Marathon Afstand (21.1 km)", dateRange: "4 Jan - 10 Jan 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Korte Tempoprikkel", type: "run", km: 7.0, originalKm: 7.0, pace: "4:50 /km", note: "Scherpte houden", status: "planned" },
-          { day: "Donderdag", title: "Licht Duurloopje", type: "run", km: 6.5, originalKm: 6.5, pace: "5:35 /km", note: "Genieten", status: "planned" },
-          { day: "Zondag", title: "Herstelduurloop: 14 km", type: "run", km: 14.0, originalKm: 14.0, pace: "5:40 /km", note: "Peesherstel", status: "planned" }
-        ]
-      },
-      {
-        id: 9, title: "Week 9: Nieuwjaar & 21 km Grens", dateRange: "29 Dec - 4 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "4x 1.5km MP Blokken", type: "run", km: 10.5, originalKm: 10.5, pace: "4:55 /km", note: "Wedstrijdgevoel", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "28 km/u", note: "Crosstraining", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Soepel", status: "planned" },
-          { day: "Zondag", title: "De Halve Marathon Afstand: 21.1 km!", type: "run", km: 21.1, originalKm: 21.1, pace: "5:35 /km", note: "Mijlpaal!", status: "planned" }
-        ]
-      },
-      {
-        id: 10, title: "Week 10: Doorbouwen naar 23 km", dateRange: "5 Jan - 11 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Piramideloop (1-2-3-2-1 km)", type: "run", km: 11.0, originalKm: 11.0, pace: "4:35 - 4:50 /km", note: "Intensieve prikkel", status: "planned" },
+          { day: "Dinsdag", title: "5x 1km Drempel", type: "run", km: 10.0, originalKm: 10.0, pace: "4:30 /km", note: "200m dribbelpauze", status: "planned" },
           { day: "Donderdag", title: "Basislus", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Rustig tempo", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 23 km", type: "run", km: 23.0, originalKm: 23.0, pace: "5:35 /km", note: "Drinken oefenen", status: "planned" }
+          { day: "Zondag", title: "Halve Marathon Duurloop: 21.1 km", type: "run", km: 21.1, originalKm: 21.1, pace: "5:35 /km", note: "Mijlpaal!", status: "planned" }
         ]
       },
       {
-        id: 11, title: "Week 11: De 25 km Barrière", dateRange: "12 Jan - 18 Jan 2027", phase: 2, isOffWeek: false,
+        id: 8, title: "Week 8: Doorbouwen naar 23 km", dateRange: "11 Jan - 17 Jan 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "3x 3km Blokken MP", type: "run", km: 12.0, originalKm: 12.0, pace: "4:58 /km", note: "Focus op cadans", status: "planned" },
-          { day: "Donderdag", title: "Herstelloop", type: "run", km: 8.0, originalKm: 8.0, pace: "5:40 /km", note: "Schenen ontspannen", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 25 km", type: "run", km: 25.0, originalKm: 25.0, pace: "5:35 /km", note: "Grote stap", status: "planned" }
+          { day: "Dinsdag", title: "3x 3km MP Blokken", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Marathontempo gevoel", status: "planned" },
+          { day: "Donderdag", title: "Herstelloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:40 /km", note: "Kuiten ontspannen", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 23 km", type: "run", km: 23.0, originalKm: 23.0, pace: "5:35 /km", note: "Drinken & gels oefenen", status: "planned" }
         ]
       },
       {
-        id: 12, title: "Week 12: Cutback Herstelweek", dateRange: "19 Jan - 25 Jan 2027", phase: 2, isOffWeek: false,
+        id: 9, title: "Week 9: Cutback Herstelweek", dateRange: "18 Jan - 24 Jan 2027", phase: 2, isOffWeek: false,
         workouts: [
           { day: "Dinsdag", title: "Vlotte 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:00 /km", note: "Kort en energiek", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "27 km/u", note: "Benen los", status: "planned" },
-          { day: "Zondag", title: "Herstel Duurloop: 16 km", type: "run", km: 16.0, originalKm: 16.0, pace: "5:35 /km", note: "Weefselherstel", status: "planned" }
+          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "28 km/u", note: "Benen los", status: "planned" },
+          { day: "Zondag", title: "Herstel Duurloop: 16 km", type: "run", km: 16.0, originalKm: 16.0, pace: "5:35 /km", note: "Supercompensatie", status: "planned" }
         ]
       },
       {
-        id: 13, title: "Week 13: Opbouw naar de Dertig", dateRange: "26 Jan - 1 Feb 2027", phase: 2, isOffWeek: false,
+        id: 10, title: "Week 10: De 25 km Barrière", dateRange: "25 Jan - 31 Jan 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "6x 1km Drempel", type: "run", km: 10.5, originalKm: 10.5, pace: "4:25 /km", note: "VO2max prikkel", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 10.0, originalKm: 10.0, pace: "5:30 /km", note: "Constant ritme", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 27 km", type: "run", km: 27.0, originalKm: 27.0, pace: "5:35 /km", note: "Vetverbranding", status: "planned" }
+          { day: "Dinsdag", title: "Piramideloop (1-2-3-2-1 km)", type: "run", km: 11.5, originalKm: 11.5, pace: "4:35 - 4:50 /km", note: "Intensieve prikkel", status: "planned" },
+          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.5, originalKm: 9.5, pace: "5:30 /km", note: "Constant ritme", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 25 km", type: "run", km: 25.0, originalKm: 25.0, pace: "5:35 /km", note: "Grote psychologische stap", status: "planned" }
         ]
       },
       {
-        id: 14, title: "Week 14: Tempohardheid", dateRange: "2 Feb - 8 Feb 2027", phase: 2, isOffWeek: false,
+        id: 11, title: "Week 11: Opbouw naar 27 km", dateRange: "1 Feb - 7 Feb 2027", phase: 2, isOffWeek: false,
         workouts: [
           { day: "Dinsdag", title: "2x 5km MP Blokken", type: "run", km: 13.0, originalKm: 13.0, pace: "4:58 /km", note: "Marathonspecifiek", status: "planned" },
           { day: "Donderdag", title: "Losloopronde", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 27 km", type: "run", km: 27.0, originalKm: 27.0, pace: "5:35 /km", note: "Vetverbranding op de proef", status: "planned" }
+        ]
+      },
+      {
+        id: 12, title: "Week 12: Tempohardheid -> 29 km", dateRange: "8 Feb - 14 Feb 2027", phase: 2, isOffWeek: false,
+        workouts: [
+          { day: "Dinsdag", title: "6x 1km Drempel", type: "run", km: 11.0, originalKm: 11.0, pace: "4:25 /km", note: "VO2max", status: "planned" },
+          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Sparen voor zondag", status: "planned" },
           { day: "Zondag", title: "Monsterduurloop: 29 km", type: "run", km: 29.0, originalKm: 29.0, pace: "5:35 /km", note: "Tijd op je voeten", status: "planned" }
         ]
       },
       {
-        id: 15, title: "Week 15: DE KROONDUURLOOP: 32 KM", dateRange: "9 Feb - 15 Feb 2027", phase: 2, isOffWeek: false,
+        id: 13, title: "Week 13: Cutback Herstelweek", dateRange: "15 Feb - 21 Feb 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Korte Prikkels", type: "run", km: 8.0, originalKm: 8.0, pace: "4:45 /km", note: "Sparen voor zondag", status: "planned" },
-          { day: "Donderdag", title: "Kort Duurloopje", type: "run", km: 7.0, originalKm: 7.0, pace: "5:35 /km", note: "Energie laden", status: "planned" },
-          { day: "Zondag", title: "DE KROONDUURLOOP: 32 KM", type: "run", km: 32.0, originalKm: 32.0, pace: "5:35 /km", note: "Rotterdam Piek!", status: "planned" }
+          { day: "Dinsdag", title: "Rustig Loslopen", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Herstel van 29k", status: "planned" },
+          { day: "Donderdag", title: "Wielrennen Duur", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "28 km/u", note: "Losse benen", status: "planned" },
+          { day: "Zondag", title: "Gecontroleerde Duurloop: 18 km", type: "run", km: 18.0, originalKm: 18.0, pace: "5:30 /km", note: "Vorm vasthouden", status: "planned" }
         ]
       },
       {
-        id: 16, title: "Week 16: Herstel na Piekduurloop", dateRange: "16 Feb - 22 Feb 2027", phase: 2, isOffWeek: false,
+        id: 14, title: "Week 14: Eerste Dertiger (30 km)", dateRange: "22 Feb - 28 Feb 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Rustig Loslopen", type: "run", km: 8.0, originalKm: 8.0, pace: "5:35 /km", note: "Herstel van 32k", status: "planned" },
-          { day: "Donderdag", title: "Wielrennen Duur", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "Losse benen", status: "planned" },
-          { day: "Zondag", title: "Gecontroleerde Duurloop: 20 km", type: "run", km: 20.0, originalKm: 20.0, pace: "5:30 /km", note: "Vorm vasthouden", status: "planned" }
+          { day: "Dinsdag", title: "4x 2km MP Blokken", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Strak ritme", status: "planned" },
+          { day: "Donderdag", title: "Basislus", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Zone 2", status: "planned" },
+          { day: "Zondag", title: "Lange Duurloop: 30 km", type: "run", km: 30.0, originalKm: 30.0, pace: "5:35 /km", note: "Groene Hart simulatie", status: "planned" }
         ]
       },
       {
-        id: 17, title: "Week 17: Marathonsnelheid Test", dateRange: "23 Feb - 1 Mar 2027", phase: 2, isOffWeek: false,
+        id: 15, title: "Week 15: Marathonsnelheid Test", dateRange: "1 Mar - 7 Mar 2027", phase: 2, isOffWeek: false,
         workouts: [
           { day: "Dinsdag", title: "12 km met 8 km op 4:55 /km", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Voelt natuurlijk", status: "planned" },
           { day: "Donderdag", title: "Lichte Duurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop met MP Finish: 28 km", type: "run", km: 28.0, originalKm: 28.0, pace: "23k @ 5:35 + 5k @ 4:58", note: "Simulatie", status: "planned" }
+          { day: "Zondag", title: "Duurloop met MP Finish: 26 km", type: "run", km: 26.0, originalKm: 26.0, pace: "21k @ 5:35 + 5k @ 4:58", note: "Simulatie", status: "planned" }
         ]
       },
       {
-        id: 18, title: "Week 18: Laatste Dertiger", dateRange: "2 Mar - 8 Mar 2027", phase: 3, isOffWeek: false,
+        id: 16, title: "Week 16: DE KROONDUURLOOP: 32 KM", dateRange: "8 Mar - 14 Mar 2027", phase: 2, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "4x 2km op MP", type: "run", km: 11.0, originalKm: 11.0, pace: "4:55 /km", note: "Sterk en rechtop lopen", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 8.0, originalKm: 8.0, pace: "5:30 /km", note: "Soepel", status: "planned" },
+          { day: "Dinsdag", title: "Korte Prikkels", type: "run", km: 8.5, originalKm: 8.5, pace: "4:45 /km", note: "Energie sparen", status: "planned" },
+          { day: "Donderdag", title: "Loslooprondje", type: "run", km: 7.5, originalKm: 7.5, pace: "5:35 /km", note: "Losse benen", status: "planned" },
+          { day: "Zondag", title: "DE KROONDUURLOOP: 32 KM", type: "run", km: 32.0, originalKm: 32.0, pace: "5:35 /km", note: "Piekduurloop!", status: "planned" }
+        ]
+      },
+      {
+        id: 17, title: "Week 17: Herstel na 32 km", dateRange: "15 Mar - 21 Mar 2027", phase: 2, isOffWeek: false,
+        workouts: [
+          { day: "Dinsdag", title: "Rustig Loslopen", type: "run", km: 8.0, originalKm: 8.0, pace: "5:35 /km", note: "Herstel", status: "planned" },
+          { day: "Donderdag", title: "Wielrennen Los", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Cardio", status: "planned" },
+          { day: "Zondag", title: "Gecontroleerde 20 km", type: "run", km: 20.0, originalKm: 20.0, pace: "5:30 /km", note: "Vorm vasthouden", status: "planned" }
+        ]
+      },
+      {
+        id: 18, title: "Week 18: Laatste Zware Dertiger", dateRange: "22 Mar - 28 Mar 2027", phase: 3, isOffWeek: false,
+        workouts: [
+          { day: "Dinsdag", title: "4x 2km op MP", type: "run", km: 11.5, originalKm: 11.5, pace: "4:55 /km", note: "Sterk en rechtop lopen", status: "planned" },
+          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 8.5, originalKm: 8.5, pace: "5:30 /km", note: "Soepel", status: "planned" },
           { day: "Zondag", title: "Laatste Dertiger: 30 km", type: "run", km: 30.0, originalKm: 30.0, pace: "5:35 /km", note: "Definitieve cheque", status: "planned" }
         ]
       },
       {
-        id: 19, title: "Week 19: Tussenfase voor de Taper", dateRange: "9 Mar - 15 Mar 2027", phase: 3, isOffWeek: false,
+        id: 19, title: "Week 19: Specifieke MP-Prikkel", dateRange: "29 Mar - 4 Apr 2027", phase: 3, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "5x 1km Vlot", type: "run", km: 9.0, originalKm: 9.0, pace: "4:30 /km", note: "Snelheid behouden", status: "planned" },
+          { day: "Dinsdag", title: "3x 3km op MP", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Wedstrijdritme", status: "planned" },
           { day: "Donderdag", title: "Rustig Rondje", type: "run", km: 8.0, originalKm: 8.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Gecontroleerde 24 km", type: "run", km: 24.0, originalKm: 24.0, pace: "5:30 /km", note: "Laatste vermoeidheid", status: "planned" }
+          { day: "Zondag", title: "Gecontroleerde 25 km", type: "run", km: 25.0, originalKm: 25.0, pace: "5:30 /km", note: "Laatste keer vermoeidheid", status: "planned" }
         ]
       },
       {
-        id: 20, title: "Week 20: Taper Week 1 (-25% Volume)", dateRange: "16 Mar - 22 Mar 2027", phase: 3, isOffWeek: false,
+        id: 20, title: "Week 20: Tussenfase voor Taper", dateRange: "5 Apr - 11 Apr 2027", phase: 3, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "8 km met 4 km op MP", type: "run", km: 8.0, originalKm: 8.0, pace: "4:55 /km", note: "Snelheid vasthouden", status: "planned" },
-          { day: "Donderdag", title: "Loslooprondje", type: "run", km: 6.0, originalKm: 6.0, pace: "5:30 /km", note: "Geen zware benen", status: "planned" },
-          { day: "Zondag", title: "Taper Duurloop: 20 km", type: "run", km: 20.0, originalKm: 20.0, pace: "5:25 - 5:30 /km", note: "Voelt licht!", status: "planned" }
+          { day: "Dinsdag", title: "5x 1km Vlot", type: "run", km: 9.5, originalKm: 9.5, pace: "4:30 /km", note: "Snelheid behouden", status: "planned" },
+          { day: "Donderdag", title: "Loslooprondje", type: "run", km: 8.0, originalKm: 8.0, pace: "5:30 /km", note: "Soepel", status: "planned" },
+          { day: "Zondag", title: "Duurloop: 22 km", type: "run", km: 22.0, originalKm: 22.0, pace: "5:25 - 5:30 /km", note: "Krachtig afronden", status: "planned" }
         ]
       },
       {
-        id: 21, title: "Week 21: Taper Week 2 (-40% Volume)", dateRange: "23 Mar - 29 Mar 2027", phase: 3, isOffWeek: false,
+        id: 21, title: "Week 21: Taper Week 1 (-25% Volume)", dateRange: "12 Apr - 18 Apr 2027", phase: 3, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "Korte Prikkels: 3x 1km", type: "run", km: 6.5, originalKm: 6.5, pace: "4:50 /km", note: "Scherpte behouden", status: "planned" },
-          { day: "Donderdag", title: "Kort Loslopen", type: "run", km: 5.0, originalKm: 5.0, pace: "5:35 /km", note: "Heel relaxed", status: "planned" },
-          { day: "Zondag", title: "Korte Zondagloop: 14 km", type: "run", km: 14.0, originalKm: 14.0, pace: "5:30 /km", note: "Energie opsparen", status: "planned" }
+          { day: "Dinsdag", title: "8 km met 4 km op MP", type: "run", km: 8.0, originalKm: 8.0, pace: "4:55 /km", note: "Scherpte houden", status: "planned" },
+          { day: "Donderdag", title: "Kort Loslopen", type: "run", km: 6.0, originalKm: 6.0, pace: "5:35 /km", note: "Geen zware benen", status: "planned" },
+          { day: "Zondag", title: "Taper Duurloop: 18 km", type: "run", km: 18.0, originalKm: 18.0, pace: "5:30 /km", note: "Voelt heerlijk licht!", status: "planned" }
         ]
       },
       {
-        id: 22, title: "Week 22: Taper Week 3 (-60% Volume)", dateRange: "30 Mar - 5 Apr 2027", phase: 3, isOffWeek: false,
+        id: 22, title: "Week 22: Taper Week 2 (-45% Volume)", dateRange: "19 Apr - 25 Apr 2027", phase: 3, isOffWeek: false,
         workouts: [
-          { day: "Dinsdag", title: "5 km met 3 Steigerungs", type: "run", km: 5.0, originalKm: 5.0, pace: "4:55 /km", note: "Spanning op de benen", status: "planned" },
-          { day: "Donderdag", title: "Koffierondje 4 km", type: "run", km: 4.0, originalKm: 4.0, pace: "5:40 /km", note: "Bloedsomloop stimuleren", status: "planned" },
-          { day: "Zondag", title: "Kort Testloopje: 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:20 /km", note: "Carboloaden", status: "planned" }
+          { day: "Dinsdag", title: "Korte Prikkels: 3x 1km", type: "run", km: 6.5, originalKm: 6.5, pace: "4:50 /km", note: "Spanning op de benen", status: "planned" },
+          { day: "Donderdag", title: "Koffierondje 5 km", type: "run", km: 5.0, originalKm: 5.0, pace: "5:35 /km", note: "Heel relaxed", status: "planned" },
+          { day: "Zondag", title: "Korte Zondagloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:30 /km", note: "Energie opsparen", status: "planned" }
         ]
       },
       {
-        id: 23, title: "Week 23: RACE WEEK ROTTERDAM! 🏁", dateRange: "6 Apr - 11 Apr 2027", phase: 3, isOffWeek: false,
+        id: 23, title: "Week 23: Taper Week 3 (-65% Volume)", dateRange: "26 Apr - 2 Mei 2027", phase: 3, isOffWeek: false,
+        workouts: [
+          { day: "Dinsdag", title: "5 km met 3 Steigerungs", type: "run", km: 5.0, originalKm: 5.0, pace: "4:55 /km", note: "Snelheid voelen", status: "planned" },
+          { day: "Donderdag", title: "Koffierondje 4 km", type: "run", km: 4.0, originalKm: 4.0, pace: "5:40 /km", note: "Bloedsomloop", status: "planned" },
+          { day: "Zondag", title: "Kort Testloopje: 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:20 /km", note: "Carboloaden voorbereiden", status: "planned" }
+        ]
+      },
+      {
+        id: 24, title: "Week 24: RACE WEEK LEIDEN! 🏁", dateRange: "3 Mei - 9 Mei 2027", phase: 3, isOffWeek: false,
         workouts: [
           { day: "Dinsdag", title: "Shakeout Run", type: "run", km: 4.0, originalKm: 4.0, pace: "5:30 met 3x 100m MP", note: "Zenuwen loslopen", status: "planned" },
           { day: "Donderdag", title: "Spieractivatie 3 km", type: "run", km: 3.0, originalKm: 3.0, pace: "5:40 /km", note: "15 min losjes bewegen", status: "planned" },
-          { day: "Vrijdag", title: "Rust & Koolhydraten laden", type: "other", km: 0, originalKm: 0, note: "Pannenkoeken, pasta, sportdrank", status: "planned" },
+          { day: "Vrijdag", title: "Rust & Koolhydraten laden", type: "other", km: 0, originalKm: 0, note: "Pasta, pannenkoeken, sportdrank", status: "planned" },
           { day: "Zaterdag", title: "Rust & Kleding klaarleggen", type: "other", km: 0, originalKm: 0, note: "Vroeg slapen!", status: "planned" },
-          { day: "Zondag 11 April", title: "NN MARATHON ROTTERDAM", type: "race", km: 42.2, originalKm: 42.2, pace: "4:58 /km doel", note: "Finish op de Coolsingel! Sub-3:30!", status: "planned" }
+          { day: "Zondag 9 Mei", title: "LEIDEN MARATHON 🏛️", type: "race", km: 42.2, originalKm: 42.2, pace: "4:58 /km doel", note: "Finish op de Vismarkt! Sub-3:30!", status: "planned" }
         ]
       }
     ];
 
-    // 2. LEIDEN 27-WEEK PLAN GENERATOR
-    function generateLeidenPlan() {
-      const base = JSON.parse(JSON.stringify(ROTTERDAM_PLAN));
-      const phase1and2 = base.slice(0, 17);
-      
-      const extraWeeks = [
-        {
-          id: 18, title: "Week 18: Leiden Aerobe Duurbouw", dateRange: "2 Mar - 8 Mar 2027", phase: 2, isOffWeek: false,
-          workouts: [
-            { day: "Dinsdag", title: "3x 3km Marathontempo", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Leiden tempo consolidatie", status: "planned" },
-            { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "28 km/u", note: "Cardio", status: "planned" },
-            { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Soepel", status: "planned" },
-            { day: "Zondag", title: "Lange Duurloop: 26 km", type: "run", km: 26.0, originalKm: 26.0, pace: "5:35 /km", note: "Groene Hart simulatie", status: "planned" }
-          ]
-        },
-        {
-          id: 19, title: "Week 19: Extra Herstelcutback", dateRange: "9 Mar - 15 Mar 2027", phase: 2, isOffWeek: false,
-          workouts: [
-            { day: "Dinsdag", title: "Vlotte 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:00 /km", note: "Scherpte houden", status: "planned" },
-            { day: "Donderdag", title: "Koffierondje", type: "run", km: 7.0, originalKm: 7.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
-            { day: "Zondag", title: "Herstel Duurloop: 18 km", type: "run", km: 18.0, originalKm: 18.0, pace: "5:35 /km", note: "Supercompensatie", status: "planned" }
-          ]
-        },
-        {
-          id: 20, title: "Week 20: Leiden Dertiger 1", dateRange: "16 Mar - 22 Mar 2027", phase: 2, isOffWeek: false,
-          workouts: [
-            { day: "Dinsdag", title: "5x 1.5km MP Blokken", type: "run", km: 11.5, originalKm: 11.5, pace: "4:55 /km", note: "Strak ritme", status: "planned" },
-            { day: "Donderdag", title: "Basislus", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Zone 2", status: "planned" },
-            { day: "Zondag", title: "Monsterduurloop: 30 km", type: "run", km: 30.0, originalKm: 30.0, pace: "5:35 /km", note: "Eerste dertiger Leiden", status: "planned" }
-          ]
-        },
-        {
-          id: 21, title: "Week 21: DE LEIDEN KROONDUURLOOP: 32 KM", dateRange: "23 Mar - 29 Mar 2027", phase: 2, isOffWeek: false,
-          workouts: [
-            { day: "Dinsdag", title: "Korte Prikkels", type: "run", km: 8.0, originalKm: 8.0, pace: "4:45 /km", note: "Energie sparen", status: "planned" },
-            { day: "Donderdag", title: "Loslooprondje", type: "run", km: 7.0, originalKm: 7.0, pace: "5:35 /km", note: "Losse benen", status: "planned" },
-            { day: "Zondag", title: "DE KROONDUURLOOP: 32 KM", type: "run", km: 32.0, originalKm: 32.0, pace: "5:35 /km", note: "Piekduurloop voor Leiden!", status: "planned" }
-          ]
-        }
-      ];
-
-      const taperWeeks = base.slice(17).map((w, idx) => {
-        const newW = JSON.parse(JSON.stringify(w));
-        newW.id = 22 + idx;
-        newW.phase = 3;
-        if (newW.id === 22) { newW.title = "Week 22: Laatste Dertiger Leiden"; newW.dateRange = "30 Mar - 5 Apr 2027"; }
-        if (newW.id === 23) { newW.title = "Week 23: Tussenfase voor Taper"; newW.dateRange = "6 Apr - 12 Apr 2027"; }
-        if (newW.id === 24) { newW.title = "Week 24: Taper Week 1 (-25%)"; newW.dateRange = "13 Apr - 19 Apr 2027"; }
-        if (newW.id === 25) { newW.title = "Week 25: Taper Week 2 (-40%)"; newW.dateRange = "20 Apr - 26 Apr 2027"; }
-        if (newW.id === 26) { newW.title = "Week 26: Taper Week 3 (-60%)"; newW.dateRange = "27 Apr - 3 Mei 2027"; }
-        if (newW.id === 27) {
-          newW.title = "Week 27: RACE WEEK LEIDEN! 🏁";
-          newW.dateRange = "4 Mei - 9 Mei 2027";
-          const rWo = newW.workouts.find(x => x.type === 'race');
+    // ROTTERDAM: 11 APRIL 2027 (20 WEKEN VANAF 23 NOV 2026)
+    function generateRotterdamCleanPlan() {
+      const base = JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN));
+      const part1 = base.slice(0, 16);
+      const part2 = base.slice(20, 24).map((w, idx) => {
+        w.id = 17 + idx;
+        if (w.id === 17) { w.title = "Week 17: Taper Week 1 (-25%)"; w.dateRange = "15 Mar - 21 Mar 2027"; }
+        if (w.id === 18) { w.title = "Week 18: Taper Week 2 (-45%)"; w.dateRange = "22 Mar - 28 Mar 2027"; }
+        if (w.id === 19) { w.title = "Week 19: Taper Week 3 (-65%)"; w.dateRange = "29 Mar - 4 Apr 2027"; }
+        if (w.id === 20) {
+          w.title = "Week 20: RACE WEEK ROTTERDAM! 🏁";
+          w.dateRange = "5 Apr - 11 Apr 2027";
+          const rWo = w.workouts.find(x => x.type === 'race');
           if (rWo) {
-            rWo.day = "Zondag 9 Mei";
-            rWo.title = "LEIDEN MARATHON";
-            rWo.note = "Finish op de Vismarkt in Leiden! Sub-3:30!";
+            rWo.day = "Zondag 11 April";
+            rWo.title = "NN MARATHON ROTTERDAM";
+            rWo.note = "Finish op de Coolsingel! Sub-3:30!";
           }
         }
-        return newW;
+        return w;
       });
-
-      return [...phase1and2, ...extraWeeks, ...taperWeeks];
+      return [...part1, ...part2];
     }
 
-    // STATE VARIABLES
-    let activeRace = 'rotterdam';
+    // STATE VARIABLES (START SCHOON: 0 RUNS)
+    let activeRace = 'leiden';
     let weeks = [];
     let currentFilter = 'all';
     let activeTab = 'schedule';
     let pendingConflict = null;
-    let pendingProposal = null;
-
-    let loggedRuns = [
-      {
-        id: 1,
-        date: "2026-11-03",
-        km: 7.50,
-        timeFormatted: "41:07",
-        totalSeconds: 2467,
-        paceFormatted: "5:29 /km",
-        intensity: "moderate",
-        type: "Duurloop",
-        note: "Namiddagloop met Thijmen: km 1-7 op 5:29/km, finishkick naar 4:55/km."
-      }
-    ];
+    let loggedRuns = [];
 
     window.addEventListener('DOMContentLoaded', () => {
       loadState();
@@ -840,53 +946,51 @@
     });
 
     function loadState() {
-      const savedRace = localStorage.getItem('just_active_race');
+      const savedRace = localStorage.getItem('just_clean_active_race');
       if (savedRace === 'leiden' || savedRace === 'rotterdam') {
         activeRace = savedRace;
       }
 
-      const storageKey = activeRace === 'leiden' ? 'just_leiden_plan_v2' : 'just_rotterdam_plan_v4';
+      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
       const saved = localStorage.getItem(storageKey);
       if (saved) {
         try { 
           weeks = JSON.parse(saved); 
-          weeks.forEach(w => w.workouts.forEach(wo => {
-            if (wo.originalKm === undefined) wo.originalKm = wo.km;
-          }));
         } catch(e) { 
-          weeks = activeRace === 'leiden' ? generateLeidenPlan() : JSON.parse(JSON.stringify(ROTTERDAM_PLAN)); 
+          weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan(); 
         }
       } else {
-        weeks = activeRace === 'leiden' ? generateLeidenPlan() : JSON.parse(JSON.stringify(ROTTERDAM_PLAN));
+        weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan();
       }
 
-      const savedRuns = localStorage.getItem('just_marathon_runs_shared');
+      const savedRuns = localStorage.getItem('just_clean_runs_v1');
       if (savedRuns) {
-        try { loggedRuns = JSON.parse(savedRuns); } catch(e) {}
+        try { loggedRuns = JSON.parse(savedRuns); } catch(e) { loggedRuns = []; }
+      } else {
+        loggedRuns = [];
       }
     }
 
     function saveState() {
-      localStorage.setItem('just_active_race', activeRace);
-      const storageKey = activeRace === 'leiden' ? 'just_leiden_plan_v2' : 'just_rotterdam_plan_v4';
+      localStorage.setItem('just_clean_active_race', activeRace);
+      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
       localStorage.setItem(storageKey, JSON.stringify(weeks));
-      localStorage.setItem('just_marathon_runs_shared', JSON.stringify(loggedRuns));
+      localStorage.setItem('just_clean_runs_v1', JSON.stringify(loggedRuns));
     }
 
-    // SWITCH TARGET RACE DIRECT
     function switchRaceTarget(race) {
       if (activeRace === race) return;
       saveState();
       activeRace = race;
-      currentFilter = 'all'; // reset filter so all weeks are rendered
+      currentFilter = 'all';
       
-      const storageKey = activeRace === 'leiden' ? 'just_leiden_plan_v2' : 'just_rotterdam_plan_v4';
+      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
       const saved = localStorage.getItem(storageKey);
       if (saved) {
         try { weeks = JSON.parse(saved); }
-        catch(e) { weeks = activeRace === 'leiden' ? generateLeidenPlan() : JSON.parse(JSON.stringify(ROTTERDAM_PLAN)); }
+        catch(e) { weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan(); }
       } else {
-        weeks = activeRace === 'leiden' ? generateLeidenPlan() : JSON.parse(JSON.stringify(ROTTERDAM_PLAN));
+        weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan();
       }
 
       saveState();
@@ -894,7 +998,7 @@
       renderWeeks();
       updateKPIs();
       calculatePrognosis();
-      showToast(`Doelrace omgeschakeld naar ${race === 'leiden' ? 'Leiden Marathon (27 Weken)' : 'Rotterdam Marathon (23 Weken)'}!`);
+      showToast(`Doelrace omgeschakeld naar ${race === 'leiden' ? 'Leiden Marathon (24 Weken)' : 'Rotterdam Marathon (20 Weken)'}!`);
     }
 
     function toggleRaceQuick() {
@@ -910,7 +1014,7 @@
       const logoBadge = document.getElementById('race-logo-badge');
       if (isRdam) {
         logoBadge.innerText = "R'27";
-        logoBadge.className = "w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-500 flex items-center justify-center shadow-lg text-white font-black text-lg tracking-wider";
+        logoBadge.className = "w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-amber-500 flex items-center justify-center shadow-lg text-white font-black text-lg tracking-wider";
       } else {
         logoBadge.innerText = "L'27";
         logoBadge.className = "w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-sky-500 to-cyan-400 flex items-center justify-center shadow-lg text-white font-black text-lg tracking-wider";
@@ -919,7 +1023,7 @@
       const btnRdam = document.getElementById('btn-race-rotterdam');
       const btnLeid = document.getElementById('btn-race-leiden');
       if (isRdam) {
-        btnRdam.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-orange-600 text-white shadow-sm";
+        btnRdam.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-brand-600 text-white shadow-sm";
         btnLeid.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5";
       } else {
         btnRdam.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5";
@@ -930,8 +1034,8 @@
         ? "Doelrace: NN Marathon Rotterdam (11 April 2027)" 
         : "Doelrace: Leiden Marathon (9 Mei 2027) 🏛️";
       document.getElementById('banner-race-sub').innerText = isRdam 
-        ? "23 weken voorbereiding • 22 nov einde veldcompetitie • Geen startbewijs? Klik direct op Leiden (9 mei 2027)!" 
-        : "27 weken voorbereiding • 4 extra weken duurbouw & peesherstel • Vlak parcours door het Groene Hart & Leiden!";
+        ? "Schone start vanaf maandag 23 nov 2026 (20 weken) • Mocht je via herverkoop een ticket pakken, staat dit schema klaar." 
+        : "Schone start vanaf maandag 23 nov 2026 (24 weken) • Veldcompetitie voorbij • Stuur de AI Coach hieronder om je trainingen direct op maat te zetten.";
       document.getElementById('btn-banner-switch').innerText = isRdam ? "Wissel naar Leiden" : "Wissel naar Rotterdam";
 
       document.getElementById('kpi-weeks-total').innerText = weeks.length;
@@ -941,7 +1045,6 @@
       lucide.createIcons();
     }
 
-    // TAB SWITCHING
     function switchTab(tabName) {
       activeTab = tabName;
       
@@ -953,7 +1056,7 @@
       const btnActivities = document.getElementById('nav-btn-activities');
       const btnPhysio = document.getElementById('nav-btn-physio');
 
-      const activeColor = activeRace === 'leiden' ? 'bg-sky-600' : 'bg-orange-600';
+      const activeColor = activeRace === 'leiden' ? 'bg-sky-600' : 'bg-brand-600';
       const activeClass = `px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${activeColor} text-white shadow-sm`;
       const inactiveClass = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-1.5";
 
@@ -969,35 +1072,36 @@
       lucide.createIcons();
     }
 
-    // ROLLING "GOLF-HANDICAP" STYLE PROGNOSIS ENGINE
     function calculatePrognosis() {
-      let candidateRuns = [];
+      const whsSummary = document.getElementById('whs-summary-text');
+      const whsBadge = document.getElementById('whs-status-badge');
+      const whsRunsUsed = document.getElementById('whs-runs-used');
+      const whsPenalty = document.getElementById('whs-endurance-penalty');
 
-      loggedRuns.forEach(r => {
-        candidateRuns.push({
-          km: Number(r.km) || 0,
-          totalSeconds: r.totalSeconds,
-          intensity: r.intensity || "moderate",
-          date: r.date || "2026-11-03"
-        });
-      });
-
-      if (candidateRuns.length === 0) {
-        candidateRuns.push({ km: 7.5, totalSeconds: 2467, intensity: "moderate" });
+      if (loggedRuns.length === 0) {
+        document.getElementById('kpi-prognosis-time').innerText = "--:--:--";
+        document.getElementById('kpi-prognosis-pace').innerText = "Log eerst een run";
+        document.getElementById('kpi-max-longrun').innerText = "0.0";
+        document.getElementById('physio-marathon-time').innerText = "--:--:--";
+        document.getElementById('physio-marathon-pace').innerText = "Wacht op eerste run";
+        document.getElementById('physio-5k').innerText = "--:--";
+        document.getElementById('physio-5k-pace').innerText = "Wacht op eerste run";
+        document.getElementById('physio-10k').innerText = "--:--";
+        document.getElementById('physio-10k-pace').innerText = "Wacht op eerste run";
+        document.getElementById('physio-hm').innerText = "--:--:--";
+        document.getElementById('physio-hm-pace').innerText = "Wacht op eerste run";
+        if (whsSummary) whsSummary.innerText = "Log je eerste training om het model te activeren.";
+        if (whsBadge) whsBadge.innerText = "Stand-by";
+        if (whsRunsUsed) whsRunsUsed.innerText = "0 van de 0 runs";
+        if (whsPenalty) whsPenalty.innerText = "--";
+        return;
       }
 
-      let maxKmLogged = 7.5;
-      candidateRuns.forEach(r => { if (r.km > maxKmLogged) maxKmLogged = r.km; });
+      let maxKmLogged = 0;
+      loggedRuns.forEach(r => { if (r.km > maxKmLogged) maxKmLogged = r.km; });
 
-      const recentWindow = candidateRuns.slice(-8);
-
-      const intensityFactor = {
-        "easy": 0.82,
-        "moderate": 0.88,
-        "hard": 0.94,
-        "max": 1.00
-      };
-
+      const recentWindow = loggedRuns.slice(-8);
+      const intensityFactor = { "easy": 0.82, "moderate": 0.88, "hard": 0.94, "max": 1.00 };
       const marathonKm = 42.195;
       const debutExponent = 1.135;
 
@@ -1009,33 +1113,48 @@
       });
 
       scoredRuns.sort((a, b) => a.equivalentMarathonSec - b.equivalentMarathonSec);
-
-      let pickCount = Math.max(1, Math.min(3, Math.ceil(scoredRuns.length / 2)));
+      const pickCount = Math.max(1, Math.min(3, Math.ceil(scoredRuns.length / 2)));
       const bestPicks = scoredRuns.slice(0, pickCount);
 
       const avgRawSec = bestPicks.reduce((acc, curr) => acc + curr.equivalentMarathonSec, 0) / bestPicks.length;
-      const enduranceDeficit = Math.max(0, (30 - maxKmLogged) / (30 - 7.5) * 0.085);
+      const enduranceDeficit = Math.max(0, (30 - maxKmLogged) / (30 - 5.0) * 0.085);
       let predictedSec = avgRawSec * (1 + enduranceDeficit);
-      predictedSec = Math.max(12300, Math.min(15300, predictedSec));
+      predictedSec = Math.max(11500, Math.min(16500, predictedSec));
 
-      const hrs = Math.floor(predictedSec / 3600);
-      const mins = Math.floor((predictedSec % 3600) / 60);
-      const secs = Math.floor(predictedSec % 60);
-      const formattedTime = `${hrs}:${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      const formatSec = (s) => {
+        const h = Math.floor(s / 3600);
+        const m = Math.floor((s % 3600) / 60);
+        const sec = Math.floor(s % 60);
+        return h > 0 ? `${h}:${m < 10 ? '0' : ''}${m}:${sec < 10 ? '0' : ''}${sec}` : `${m}:${sec < 10 ? '0' : ''}${sec}`;
+      };
 
       const paceSec = predictedSec / marathonKm;
-      const pMin = Math.floor(paceSec / 60);
-      const pSec = Math.floor(paceSec % 60);
-      const formattedPace = `${pMin}:${pSec < 10 ? '0' : ''}${pSec} /km`;
+      const formattedPace = `${Math.floor(paceSec / 60)}:${Math.floor(paceSec % 60) < 10 ? '0' : ''}${Math.floor(paceSec % 60)} /km`;
 
-      document.getElementById('kpi-prognosis-time').innerText = formattedTime;
+      document.getElementById('kpi-prognosis-time').innerText = formatSec(predictedSec);
       document.getElementById('kpi-prognosis-pace').innerText = `Tempo: ~${formattedPace} (WHS Model)`;
-      document.getElementById('physio-marathon-time').innerText = formattedTime;
+      document.getElementById('physio-marathon-time').innerText = formatSec(predictedSec);
       document.getElementById('physio-marathon-pace').innerText = `Tempo: ~${formattedPace}`;
       document.getElementById('kpi-max-longrun').innerText = maxKmLogged.toFixed(1);
+
+      if (whsSummary) whsSummary.innerText = `Geanalyseerd: laatste ${recentWindow.length} trainingen, beste ${bestPicks.length} geselecteerd conform WHS-methode.`;
+      if (whsBadge) whsBadge.innerText = "Live Gekalibreerd";
+      if (whsRunsUsed) whsRunsUsed.innerText = `${bestPicks.length} van de ${recentWindow.length} runs`;
+      if (whsPenalty) whsPenalty.innerText = `+${(enduranceDeficit * 100).toFixed(1)}%`;
+
+      const bestBase = bestPicks[0];
+      const est5k = (bestBase.totalSeconds * (intensityFactor[bestBase.intensity] || 0.88)) * Math.pow(5 / bestBase.km, 1.06);
+      const est10k = est5k * Math.pow(2, 1.06);
+      const estHm = est5k * Math.pow(21.0975 / 5, 1.08);
+
+      document.getElementById('physio-5k').innerText = formatSec(est5k);
+      document.getElementById('physio-5k-pace').innerText = `Tempo: ${formatSec(est5k / 5)} /km`;
+      document.getElementById('physio-10k').innerText = formatSec(est10k);
+      document.getElementById('physio-10k-pace').innerText = `Tempo: ${formatSec(est10k / 10)} /km`;
+      document.getElementById('physio-hm').innerText = formatSec(estHm);
+      document.getElementById('physio-hm-pace').innerText = `Tempo: ${formatSec(estHm / 21.0975)} /km`;
     }
 
-    // UPDATE KPIS
     function updateKPIs() {
       let totalKm = 0;
       weeks.forEach(w => {
@@ -1060,7 +1179,6 @@
       document.getElementById('badge-runs-count').innerText = loggedRuns.length;
     }
 
-    // RENDER WEEKS
     function renderWeeks() {
       const container = document.getElementById('weeks-list');
       if (!container) return;
@@ -1072,18 +1190,18 @@
         const weekCard = document.createElement('div');
         weekCard.className = `border rounded-2xl p-4 sm:p-5 transition shadow-sm ${
           week.isOffWeek 
-            ? 'bg-[#060a12]/50 border-[#17223b] opacity-60' 
-            : 'bg-[#0a0f1d] border-[#17223b] hover:border-[#233354]'
+            ? 'bg-navy-950/50 border-navy-800 opacity-60' 
+            : 'bg-navy-900 border-navy-800 hover:border-navy-700'
         }`;
 
-        let phaseBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 font-bold">Fase 1: Competitie</span>';
-        if (week.phase === 2) phaseBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">Fase 2: Duurbouw</span>';
+        let phaseBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20 font-bold">Fase 1: Basis</span>';
+        if (week.phase === 2) phaseBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-accent-500/10 text-accent-400 border border-accent-500/20 font-bold">Fase 2: Duurbouw</span>';
         if (week.phase === 3) phaseBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold">Fase 3: Piek & Taper</span>';
 
         const runKmSum = week.workouts.filter(wo => wo.type === 'run' || wo.type === 'race').reduce((acc, curr) => acc + (Number(curr.km) || 0), 0);
 
         weekCard.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#17223b]/80 pb-3 mb-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-navy-800/80 pb-3 mb-3">
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-white">${week.title}</span>
@@ -1094,21 +1212,22 @@
             </div>
 
             <div class="flex items-center gap-2">
-              <button onclick="promptAddWorkout(${week.id})" class="text-[11px] px-2.5 py-1 rounded-lg bg-[#10172a] hover:bg-[#17223b] text-orange-400 hover:text-orange-300 border border-[#233354] transition flex items-center gap-1">
-                <i data-lucide="plus" class="w-3 h-3"></i> Training
+              <button onclick="promptAddWorkout(${week.id})" class="text-[11px] px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-brand-400 hover:text-brand-300 border border-navy-700 transition flex items-center gap-1">
+                <i data-lucide="plus" class="w-3 h-3"></i> Training Toevoegen
               </button>
               <button onclick="toggleOffWeek(${week.id})" class="text-[11px] px-2.5 py-1 rounded-lg border transition ${
                 week.isOffWeek 
                   ? 'bg-rose-500/20 text-rose-300 border-rose-500/40 hover:bg-rose-500/30' 
-                  : 'bg-[#10172a] hover:bg-[#17223b] text-slate-400 hover:text-white border-[#233354]'
+                  : 'bg-navy-850 hover:bg-navy-800 text-slate-400 hover:text-white border-navy-700'
               }">
-                ${week.isOffWeek ? 'Heractiveer' : 'Rustweek'}
+                ${week.isOffWeek ? 'Heractiveer Week' : 'Zet op Rust / Vakantie'}
               </button>
             </div>
           </div>
 
+          <!-- WORKOUTS GRID -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            ${week.workouts.map((workout, wIdx) => renderWorkoutCard(week.id, wIdx, workout, week.isOffWeek)).join('')}
+            ${week.workouts.map((workout, wIdx) => renderWorkoutCard(week.id, wIdx, workout)).join('')}
           </div>
         `;
 
@@ -1118,9 +1237,9 @@
       lucide.createIcons();
     }
 
-    function renderWorkoutCard(weekId, wIdx, workout, isOffWeek) {
+    function renderWorkoutCard(weekId, wIdx, workout) {
       let icon = 'activity';
-      let iconColor = 'text-orange-400';
+      let iconColor = 'text-brand-400';
 
       if (workout.type === 'bike') {
         icon = 'bike';
@@ -1140,10 +1259,10 @@
       return `
         <div class="p-3 rounded-xl border transition ${
           isCompleted 
-            ? 'bg-emerald-950/25 border-emerald-800/60' 
+            ? 'bg-accent-950/25 border-accent-800/60' 
             : isSkipped 
-              ? 'bg-[#060a12]/40 border-[#17223b]/40 opacity-50' 
-              : 'bg-[#060a12]/70 border-[#17223b] hover:border-[#233354]'
+              ? 'bg-navy-950/40 border-navy-800/40 opacity-50' 
+              : 'bg-navy-950/70 border-navy-800 hover:border-navy-700'
         } flex flex-col justify-between gap-2.5">
           
           <div class="flex items-start justify-between gap-2">
@@ -1151,55 +1270,382 @@
               <div class="flex items-center gap-1.5 flex-wrap text-[11px]">
                 <i data-lucide="${icon}" class="w-3.5 h-3.5 ${iconColor}"></i>
                 
-                <select onclick="event.stopPropagation()" onchange="shiftWorkoutDay(${weekId}, ${wIdx}, this.value, this)" class="bg-[#17223b] hover:bg-[#233354] text-white font-bold text-[11px] rounded px-1.5 py-0.5 border border-[#233354] focus:outline-none focus:ring-1 focus:ring-orange-500 cursor-pointer">
+                <select onclick="event.stopPropagation()" onchange="shiftWorkoutDay(${weekId}, ${wIdx}, this.value, this)" class="bg-navy-800 hover:bg-navy-700 text-white font-bold text-[11px] rounded px-1.5 py-0.5 border border-navy-700 focus:outline-none focus:ring-1 focus:ring-brand-500 cursor-pointer">
                   ${DAYS_ORDER.map(d => `<option value="${d}" ${d.toLowerCase() === workout.day.toLowerCase() ? 'selected' : ''}>${d}</option>`).join('')}
                 </select>
 
-                ${workout.km ? `<span class="bg-[#17223b] px-1.5 py-0.5 rounded text-[10px] text-white font-bold">${workout.km} km</span>` : ''}
+                ${workout.km ? `<span class="bg-navy-800/90 px-1.5 py-0.5 rounded text-[10px] text-white font-bold">${workout.km} km</span>` : ''}
 
                 ${isModified ? `
-                  <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.2 rounded text-[9px] font-bold">
+                  <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.2 rounded text-[9px] font-bold" title="Aangepast door AI / feedback">
                     Aangepast (orig: ${workout.originalKm}k)
                   </span>
                 ` : ''}
               </div>
               
-              <h4 onclick="openWorkoutDetailModal(${weekId}, ${wIdx})" class="text-xs font-bold text-white hover:text-orange-400 cursor-pointer transition leading-tight flex items-center gap-1 ${isSkipped ? 'line-through text-slate-500' : ''}">
+              <h4 onclick="openWorkoutDetailModal(${weekId}, ${wIdx})" class="text-xs font-bold text-white hover:text-brand-400 cursor-pointer transition leading-tight flex items-center gap-1 ${isSkipped ? 'line-through text-slate-500' : ''}" title="Klik voor instructies">
                 ${workout.title}
-                <i data-lucide="info" class="w-3 h-3 opacity-60 text-orange-400 shrink-0"></i>
+                <i data-lucide="info" class="w-3 h-3 opacity-60 text-brand-400 shrink-0"></i>
               </h4>
             </div>
 
+            <!-- STATUS & DELETE BUTTONS -->
             <div class="flex items-center gap-1 shrink-0" onclick="event.stopPropagation()">
               <button onclick="setWorkoutStatus(${weekId}, ${wIdx}, 'completed')" title="Markeer als voltooid" class="p-1.5 rounded-lg border transition ${
                 isCompleted 
-                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40' 
-                  : 'hover:bg-emerald-500/10 text-slate-400 hover:text-emerald-400 border-[#233354]'
+                  ? 'bg-accent-500/20 text-accent-400 border-accent-500/40' 
+                  : 'hover:bg-accent-500/10 text-slate-400 hover:text-accent-400 border-navy-700'
               }">
                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
               </button>
               <button onclick="setWorkoutStatus(${weekId}, ${wIdx}, 'skipped')" title="Sla training over" class="p-1.5 rounded-lg border transition ${
                 isSkipped 
                   ? 'bg-rose-500/20 text-rose-400 border-rose-500/40' 
-                  : 'hover:bg-rose-500/10 text-slate-400 hover:text-rose-400 border-[#233354]'
+                  : 'hover:bg-rose-500/10 text-slate-400 hover:text-rose-400 border-navy-700'
               }">
                 <i data-lucide="x" class="w-3.5 h-3.5"></i>
               </button>
-              <button onclick="deleteWorkout(${weekId}, ${wIdx})" title="Verwijder training" class="p-1.5 rounded-lg border border-[#233354] hover:bg-rose-500/10 text-slate-500 hover:text-rose-400 transition">
+              <button onclick="deleteWorkout(${weekId}, ${wIdx})" title="Verwijder training" class="p-1.5 rounded-lg border border-navy-700 hover:bg-rose-500/10 text-slate-500 hover:text-rose-400 transition">
                 <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
               </button>
             </div>
           </div>
 
-          <div onclick="openWorkoutDetailModal(${weekId}, ${wIdx})" class="border-t border-[#17223b]/80 pt-1.5 text-[11px] space-y-0.5 cursor-pointer group">
-            ${workout.pace ? `<p class="text-slate-300 font-medium">Tempo: <span class="text-orange-400 font-semibold">${workout.pace}</span></p>` : ''}
+          <!-- CARD FOOTER -->
+          <div onclick="openWorkoutDetailModal(${weekId}, ${wIdx})" class="border-t border-navy-800/80 pt-1.5 text-[11px] space-y-0.5 cursor-pointer group">
+            ${workout.pace ? `<p class="text-slate-300 font-medium">Tempo: <span class="text-brand-400 font-semibold">${workout.pace}</span></p>` : ''}
             ${workout.time ? `<p class="text-slate-400">Duur: ${workout.time}</p>` : ''}
             ${workout.note ? `<p class="text-slate-400 text-[10px] italic">${workout.note}</p>` : ''}
+            <div class="text-[10px] text-brand-400 font-semibold opacity-0 group-hover:opacity-100 transition pt-1 flex items-center gap-1">
+              Bekijk stappen & instructies <i data-lucide="arrow-right" class="w-2.5 h-2.5"></i>
+            </div>
           </div>
         </div>
       `;
     }
 
+    // =========================================================================
+    // SLIMME AI COACH PARSER & CONVERSATIONAL ENGINE
+    // =========================================================================
+    function fillPrompt(txt) {
+      const inp = document.getElementById('coach-input');
+      inp.value = txt;
+      inp.focus();
+    }
+
+    function appendChatMessage(sender, htmlText, proposalAction = null) {
+      const log = document.getElementById('coach-chat-log');
+      const msgDiv = document.createElement('div');
+      
+      if (sender === 'user') {
+        msgDiv.className = "flex items-start justify-end gap-2.5";
+        msgDiv.innerHTML = `
+          <div class="bg-brand-600/20 border border-brand-500/40 rounded-2xl rounded-tr-none px-3.5 py-2.5 text-xs text-white max-w-xl leading-relaxed">
+            ${htmlText}
+          </div>
+        `;
+      } else {
+        const actionId = 'prop_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+        if (proposalAction) {
+          window[actionId] = proposalAction;
+        }
+        msgDiv.className = "flex items-start gap-2.5";
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="bg-navy-950 border border-navy-800 rounded-2xl rounded-tl-none p-3.5 text-xs text-slate-200 max-w-3xl space-y-2.5 leading-relaxed">
+            <div>${htmlText}</div>
+            ${proposalAction ? `
+              <div class="flex items-center gap-2 pt-1">
+                <button onclick="executeChatAction('${actionId}', this)" class="px-3.5 py-1.5 rounded-xl bg-accent-600 hover:bg-accent-500 text-white font-bold text-[11px] flex items-center gap-1.5 transition shadow-md">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i> Doorvoeren in schema
+                </button>
+                <button onclick="this.parentElement.innerHTML='<span class=\\'text-[11px] text-slate-500 italic\\'>Geannuleerd.</span>'" class="px-3 py-1.5 rounded-xl bg-navy-850 hover:bg-navy-800 text-slate-400 text-[11px] font-semibold border border-navy-700 transition">
+                  Niet doen
+                </button>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      log.appendChild(msgDiv);
+      log.scrollTop = log.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function executeChatAction(actionId, btnElem) {
+      if (typeof window[actionId] === 'function') {
+        window[actionId]();
+        saveState();
+        renderWeeks();
+        updateKPIs();
+        calculatePrognosis();
+        btnElem.parentElement.innerHTML = `<span class="text-[11px] text-accent-400 font-bold flex items-center gap-1"><i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Succesvol doorgevoerd in je schema!</span>`;
+        lucide.createIcons();
+      }
+    }
+
+    function clearChatHistory() {
+      const log = document.getElementById('coach-chat-log');
+      log.innerHTML = `
+        <div class="flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          </div>
+          <div class="bg-navy-950 border border-navy-800 rounded-2xl rounded-tl-none p-3.5 text-xs text-slate-200 max-w-3xl leading-relaxed">
+            Chat gewist. Vertel maar welke aanpassing ik in je schema mag maken!
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    function handleCoachChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('coach-input');
+      const rawText = input.value.trim();
+      if (!rawText) return;
+
+      appendChatMessage('user', rawText);
+      input.value = '';
+
+      const val = rawText.toLowerCase();
+
+      const weekMatch = val.match(/week\s*(\d+)/);
+      const targetWeekId = weekMatch ? parseInt(weekMatch[1], 10) : null;
+
+      const nextWeeksMatch = val.match(/komende\s*(\d+)\s*wek/);
+      const numNextWeeks = nextWeeksMatch ? parseInt(nextWeeksMatch[1], 10) : null;
+
+      const foundDays = [];
+      DAYS_ORDER.forEach(d => {
+        const idx = val.indexOf(d.toLowerCase());
+        if (idx !== -1) foundDays.push({ day: d, pos: idx });
+      });
+      foundDays.sort((a, b) => a.pos - b.pos);
+
+      const kmMatch = val.match(/(\d+(?:[.,]\d+)?)\s*km/) || val.match(/naar\s*(\d+(?:[.,]\d+)?)/);
+      const targetKm = kmMatch ? parseFloat(kmMatch[1].replace(',', '.')) : null;
+
+      const pctMatch = val.match(/([+-]?\d+)\s*%/);
+      const targetPct = pctMatch ? parseInt(pctMatch[1], 10) : null;
+
+      // 1. DOELRACE WISSELEN
+      if (val.includes('leiden') && (val.includes('wissel') || val.includes('schakel') || val.includes('kies') || val.includes('naar'))) {
+        appendChatMessage('ai', 
+          `Ik zet je doelrace om naar de <strong class="text-sky-400">Leiden Marathon (9 mei 2027)</strong>. Je krijgt dan het volledige 24-wekenschema met een rustige kuit-adaptatie in fase 1.`,
+          () => switchRaceTarget('leiden')
+        );
+        return;
+      }
+      if (val.includes('rotterdam') && (val.includes('wissel') || val.includes('schakel') || val.includes('kies') || val.includes('naar'))) {
+        appendChatMessage('ai', 
+          `Ik zet je doelrace om naar de <strong class="text-brand-400">NN Marathon Rotterdam (11 april 2027)</strong> met een 20-weken opbouw.`,
+          () => switchRaceTarget('rotterdam')
+        );
+        return;
+      }
+
+      // 2. VASTE LOOPDAGEN INSTELLEN
+      if ((val.includes('voortaan') || val.includes('vaste dagen') || val.includes('loopdagen') || (foundDays.length >= 3 && val.includes('lopen'))) && foundDays.length >= 2) {
+        const chosenDays = foundDays.map(x => x.day);
+        appendChatMessage('ai',
+          `Begrepen! Je wilt je hardlooptrainingen voortaan op <strong class="text-white">${chosenDays.join(', ')}</strong> plannen. Ik verdeel alle geplande hardloopsessies in elke week over deze ${chosenDays.length} vaste dagen.`,
+          () => {
+            weeks.forEach(w => {
+              const runs = w.workouts.filter(wo => wo.type === 'run');
+              runs.forEach((r, idx) => {
+                r.day = chosenDays[idx % chosenDays.length];
+              });
+              sortWeekWorkouts(w);
+            });
+            showToast(`Alle looptrainingen herverdeeld over: ${chosenDays.join(', ')}.`);
+          }
+        );
+        return;
+      }
+
+      // 3. TRAINING VERPLAATSEN VAN DAG A NAAR DAG B
+      if ((val.includes('verplaats') || val.includes('zet') || val.includes('verschuif') || val.includes('ruil')) && foundDays.length >= 2) {
+        const fromDay = foundDays[0].day;
+        const toDay = foundDays[1].day;
+        const scopeText = targetWeekId ? `in <strong>Week ${targetWeekId}</strong>` : `in <strong>alle weken</strong>`;
+
+        appendChatMessage('ai',
+          `Ik verplaats ${scopeText} de training van <strong class="text-white">${fromDay}</strong> naar <strong class="text-white">${toDay}</strong>.`,
+          () => {
+            const targetWeeks = targetWeekId ? weeks.filter(w => w.id === targetWeekId) : weeks;
+            targetWeeks.forEach(w => {
+              w.workouts.forEach(wo => {
+                if (wo.day.toLowerCase() === fromDay.toLowerCase() && wo.type !== 'race') {
+                  wo.day = toDay;
+                  wo.note = `Verplaatst vanaf ${fromDay} via AI`;
+                }
+              });
+              sortWeekWorkouts(w);
+            });
+            showToast(`Trainingen van ${fromDay} verplaatst naar ${toDay}.`);
+          }
+        );
+        return;
+      }
+
+      // 4. SPECIFIEKE TRAINING TOEVOEGEN
+      if (val.includes('voeg') || val.includes('extra') || val.includes('plan een')) {
+        const day = foundDays.length > 0 ? foundDays[0].day : 'Zaterdag';
+        const km = targetKm || 7.0;
+        const wId = targetWeekId || 1;
+        const isBike = val.includes('fiets') || val.includes('wielren');
+
+        appendChatMessage('ai',
+          `Ik voeg in <strong class="text-white">Week ${wId}</strong> op <strong class="text-white">${day}</strong> een extra ${isBike ? 'fietsrit' : 'duurloop'} van <strong class="text-brand-400">${km} km</strong> toe.`,
+          () => {
+            const w = weeks.find(x => x.id === wId);
+            if (w) {
+              w.workouts.push({
+                day: day,
+                title: isBike ? "Extra Wielrenrit" : "Extra Duurloop",
+                type: isBike ? "bike" : "run",
+                km: km,
+                originalKm: km,
+                pace: isBike ? "28 km/u" : "5:35 /km",
+                note: "Toegevoegd via AI Coach",
+                status: "planned"
+              });
+              sortWeekWorkouts(w);
+              showToast(`Extra training (${km} km) toegevoegd in Week ${wId}.`);
+            }
+          }
+        );
+        return;
+      }
+
+      // 5. TRAINING VERWIJDEREN / FIETSRITTEN WEGHALEN / RUSTDAG MAKEN
+      if ((val.includes('verwijder') || val.includes('schrap') || val.includes('haal') || val.includes('rustdag') || val.includes('geen')) && (foundDays.length > 0 || val.includes('fiets') || val.includes('wielren'))) {
+        const isBike = val.includes('fiets') || val.includes('wielren');
+        const targetDay = foundDays.length > 0 ? foundDays[0].day : null;
+        const scopeText = targetWeekId ? `in <strong>Week ${targetWeekId}</strong>` : `in <strong>alle weken</strong>`;
+
+        if (isBike) {
+          appendChatMessage('ai',
+            `Ik haal alle geplande <strong class="text-sky-400">wielrenritten</strong> ${scopeText} uit het schema zodat je alleen hardlooptrainingen ziet.`,
+            () => {
+              const targetWeeks = targetWeekId ? weeks.filter(w => w.id === targetWeekId) : weeks;
+              targetWeeks.forEach(w => {
+                w.workouts = w.workouts.filter(wo => wo.type !== 'bike');
+              });
+              showToast(`Wielrenritten verwijderd uit het schema.`);
+            }
+          );
+          return;
+        }
+
+        if (targetDay) {
+          appendChatMessage('ai',
+            `Ik maak <strong class="text-white">${targetDay}</strong> ${scopeText} vrij als rustdag (geplande training wordt verwijderd).`,
+            () => {
+              const targetWeeks = targetWeekId ? weeks.filter(w => w.id === targetWeekId) : weeks;
+              targetWeeks.forEach(w => {
+                w.workouts = w.workouts.filter(wo => wo.day.toLowerCase() !== targetDay.toLowerCase());
+              });
+              showToast(`${targetDay} vrijgemaakt als rustdag.`);
+            }
+          );
+          return;
+        }
+      }
+
+      // 6. VAKANTIE / RUSTWEEK INSTELLEN
+      if (targetWeekId && (val.includes('vakantie') || val.includes('rustweek') || val.includes('skip') || val.includes('overslaan'))) {
+        appendChatMessage('ai',
+          `Ik zet <strong class="text-white">Week ${targetWeekId}</strong> op <strong class="text-rose-400">Rust / Vakantie</strong> (alle trainingen in die week worden overgeslagen).`,
+          () => {
+            const w = weeks.find(x => x.id === targetWeekId);
+            if (w) {
+              w.isOffWeek = true;
+              w.workouts.forEach(wo => wo.status = 'skipped');
+              showToast(`Week ${targetWeekId} ingesteld als rust-/vakantieweek.`);
+            }
+          }
+        );
+        return;
+      }
+
+      // 7. SPECIFIEKE AFSTAND AANPASSEN
+      if (targetKm !== null && targetWeekId !== null) {
+        const w = weeks.find(x => x.id === targetWeekId);
+        if (w) {
+          let targetWo = null;
+          if (foundDays.length > 0) {
+            targetWo = w.workouts.find(wo => wo.day.toLowerCase() === foundDays[0].day.toLowerCase());
+          }
+          if (!targetWo && (val.includes('duurloop') || val.includes('lange') || val.includes('zondag'))) {
+            const runs = w.workouts.filter(wo => wo.type === 'run');
+            runs.sort((a, b) => b.km - a.km);
+            targetWo = runs[0];
+          }
+          if (!targetWo) {
+            targetWo = w.workouts.find(wo => wo.type === 'run');
+          }
+
+          if (targetWo) {
+            appendChatMessage('ai',
+              `In <strong class="text-white">Week ${targetWeekId}</strong> pas ik <strong>"${targetWo.title}"</strong> (${targetWo.day}) aan van <span class="text-slate-400">${targetWo.km} km</span> naar <strong class="text-brand-400">${targetKm} km</strong>.`,
+              () => {
+                if (targetWo.originalKm === undefined) targetWo.originalKm = targetWo.km;
+                targetWo.km = targetKm;
+                targetWo.note = `Aangepast naar ${targetKm} km via AI (orig: ${targetWo.originalKm}k)`;
+                showToast(`Week ${targetWeekId} (${targetWo.day}) aangepast naar ${targetKm} km.`);
+              }
+            );
+            return;
+          }
+        }
+      }
+
+      // 8. VOLUME PERCENTAGE OF KUIT/BLESSURE ONTLASTING
+      if (targetPct !== null || val.includes('kuit') || val.includes('scheen') || val.includes('pijn') || val.includes('verlaag') || val.includes('minder') || val.includes('verhoog') || val.includes('meer')) {
+        let pctChange = targetPct;
+        if (pctChange === null) {
+          if (val.includes('verhoog') || val.includes('meer') || val.includes('zwaarder')) pctChange = 15;
+          else pctChange = -20;
+        }
+        const countWeeks = numNextWeeks || (targetWeekId ? 1 : 3);
+        const factor = 1 + (pctChange / 100);
+
+        appendChatMessage('ai',
+          `Ik pas het hardloopvolume voor ${targetWeekId ? `<strong>Week ${targetWeekId}</strong>` : `de <strong>komende ${countWeeks} weken</strong>`} aan met <strong class="${pctChange < 0 ? 'text-accent-400' : 'text-brand-400'}">${pctChange > 0 ? '+' : ''}${pctChange}%</strong> om je belasting optimaal te sturen.`,
+          () => {
+            const targetList = targetWeekId ? weeks.filter(w => w.id === targetWeekId) : weeks.slice(0, countWeeks);
+            targetList.forEach(w => {
+              w.workouts.forEach(wo => {
+                if (wo.type === 'run' && wo.status === 'planned') {
+                  if (wo.originalKm === undefined) wo.originalKm = wo.km;
+                  wo.km = Math.max(3.0, Math.round(wo.km * factor * 10) / 10);
+                  wo.note = `Volume ${pctChange > 0 ? '+' : ''}${pctChange}% via AI (orig: ${wo.originalKm}k)`;
+                }
+              });
+            });
+            showToast(`Volume aangepast met ${pctChange > 0 ? '+' : ''}${pctChange}%.`);
+          }
+        );
+        return;
+      }
+
+      // FALLBACK
+      appendChatMessage('ai',
+        `Ik heb je bericht gelezen, maar weet nog niet 100% zeker welke concrete wijziging je bedoelt. Je kunt me heel direct aansturen met opdrachten zoals:<br>
+        • <em>"Ik wil voortaan op maandag, donderdag en zondag lopen"</em><br>
+        • <em>"Verplaats in week 2 de dinsdag naar woensdag"</em><br>
+        • <em>"Maak week 3 de duurloop 14 km"</em><br>
+        • <em>"Verlaag de komende 3 weken met 20% voor mijn kuiten"</em><br>
+        • <em>"Haal alle fietsritten eruit"</em> of <em>"Zet week 5 op vakantie"</em>`
+      );
+    }
+
+    // MANUAL ADD / DELETE / SHIFT / STATUS
     function promptAddWorkout(weekId) {
       const week = weeks.find(w => w.id === weekId);
       if (!week) return;
@@ -1216,7 +1662,7 @@
         type: km > 0 ? "run" : "other",
         km: km,
         originalKm: km,
-        pace: "5:30 /km",
+        pace: "5:35 /km",
         note: "Handmatig toegevoegd",
         status: "planned"
       });
@@ -1258,13 +1704,6 @@
         document.getElementById('conflict-desc').innerHTML = `Je wilt <strong>${moving.title}</strong> naar <strong>${newDay}</strong> verplaatsen, maar daar staat al <strong>${conflict.title}</strong>.`;
         document.getElementById('conflict-swap-sub').innerHTML = `Verplaats <strong>${conflict.title}</strong> automatisch naar ${oldDay}.`;
 
-        const shinAlert = document.getElementById('conflict-shin-alert');
-        if ((moving.type === 'run' && conflict.type === 'hockey') || (moving.type === 'run' && conflict.type === 'run')) {
-          shinAlert.classList.remove('hidden');
-        } else {
-          shinAlert.classList.add('hidden');
-        }
-
         document.getElementById('conflict-modal').classList.remove('hidden');
         lucide.createIcons();
       } else {
@@ -1297,6 +1736,9 @@
         moving.day = newDay;
         conflict.status = 'skipped';
         showToast(`'${moving.title}' naar ${newDay}. '${conflict.title}' overgeslagen.`);
+      } else if (action === 'stack') {
+        moving.day = newDay;
+        showToast(`Beide trainingen gepland op ${newDay}.`);
       }
 
       sortWeekWorkouts(week);
@@ -1329,7 +1771,6 @@
       saveState();
       renderWeeks();
       updateKPIs();
-      calculatePrognosis();
     }
 
     function toggleOffWeek(weekId) {
@@ -1346,136 +1787,22 @@
       saveState();
       renderWeeks();
       updateKPIs();
-      calculatePrognosis();
     }
 
     function filterPhase(phase) {
       currentFilter = phase;
       document.querySelectorAll('.phase-btn').forEach(btn => {
         if (btn.dataset.filter === String(phase)) {
-          const activeBg = activeRace === 'leiden' ? 'bg-sky-600' : 'bg-orange-600';
+          const activeBg = activeRace === 'leiden' ? 'bg-sky-600' : 'bg-brand-600';
           btn.className = `phase-btn px-3 py-1.5 rounded-xl text-xs font-bold transition ${activeBg} text-white shadow-sm`;
         } else {
-          btn.className = "phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-[#17223b] transition";
+          btn.className = "phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition";
         }
       });
       renderWeeks();
     }
 
-    function handleCoachFeedback(e) {
-      e.preventDefault();
-      const input = document.getElementById('coach-input');
-      const val = input.value.trim().toLowerCase();
-      if (!val) return;
-
-      const box = document.getElementById('proposal-box');
-      const title = document.getElementById('proposal-title');
-      const badge = document.getElementById('proposal-badge');
-      const text = document.getElementById('proposal-text');
-      const impact = document.getElementById('proposal-impact');
-
-      if (val.includes('leiden')) {
-        pendingProposal = {
-          title: "Wissel Doelrace naar Leiden Marathon",
-          action: () => switchRaceTarget('leiden')
-        };
-        badge.innerText = "Doelrace Wissel";
-        badge.className = "text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30";
-        title.innerText = "Overstappen naar Leiden (9 Mei 2027)";
-        text.innerText = "Het schema past zich direct aan naar 27 weken met finish in Leiden.";
-        impact.innerText = "Impact: +4 weken voorbereiding; data blijft behouden.";
-      }
-      else if (val.includes('rotterdam')) {
-        pendingProposal = {
-          title: "Wissel Doelrace naar Rotterdam Marathon",
-          action: () => switchRaceTarget('rotterdam')
-        };
-        badge.innerText = "Doelrace Wissel";
-        badge.className = "text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30";
-        title.innerText = "Overstappen naar Rotterdam (11 April 2027)";
-        text.innerText = "Het schema schakelt terug naar het 23-wekenschema met finish op de Coolsingel.";
-        impact.innerText = "Impact: 23 weken tijdlijn.";
-      }
-      else if (val.includes('rust') && DAYS_ORDER.some(d => val.includes(d.toLowerCase()))) {
-        const matchedDay = DAYS_ORDER.find(d => val.includes(d.toLowerCase()));
-        pendingProposal = {
-          title: `${matchedDay} als Rustdag`,
-          action: () => {
-            weeks.slice(0, 3).forEach(w => {
-              const wo = w.workouts.find(x => x.day.toLowerCase() === matchedDay.toLowerCase());
-              if (wo) {
-                if (wo.originalKm === undefined) wo.originalKm = wo.km;
-                wo.status = 'skipped';
-                wo.note = 'Rustdag via AI';
-              }
-            });
-            showToast(`${matchedDay} vrijgemaakt als rustdag.`);
-          }
-        };
-        badge.innerText = "Roosterwijziging";
-        title.innerText = `${matchedDay} Vrijmaken`;
-        text.innerText = `Training op ${matchedDay} markeren als herstel/rustdag.`;
-        impact.innerText = `Geen loopsessies op ${matchedDay}.`;
-      }
-      else if (val.includes('scheen') || val.includes('pijn')) {
-        pendingProposal = {
-          title: "Shin-Splint Ontlasting",
-          action: () => {
-            weeks.slice(0, 4).forEach(w => {
-              w.workouts.forEach(wo => {
-                if (wo.type === 'run' && wo.status === 'planned') {
-                  if (wo.originalKm === undefined) wo.originalKm = wo.km;
-                  wo.km = Math.round(wo.km * 0.75 * 10) / 10;
-                  wo.note = `Verlaagd (-25%) ivm schenen (orig: ${wo.originalKm}k)`;
-                }
-              });
-            });
-            showToast("Volume met 25% ontlast.");
-          }
-        };
-        badge.innerText = "Blessureprotectie";
-        title.innerText = "Schenen Ontlasten";
-        text.innerText = "Loopvolume van de komende weken met 25% reduceren.";
-        impact.innerText = "Minder schokbelasting op het botvlies.";
-      }
-      else {
-        pendingProposal = {
-          title: "Algemeen Herstelvoorstel",
-          action: () => {
-            const next = weeks[0].workouts.find(wo => wo.type === 'run' && wo.status === 'planned');
-            if (next) {
-              if (next.originalKm === undefined) next.originalKm = next.km;
-              next.km = Math.max(5.0, next.km - 2.0);
-              next.note = `Ingekort naar ${next.km}k`;
-            }
-          }
-        };
-        badge.innerText = "Hersteltip";
-        title.innerText = "Training Finetuning";
-        text.innerText = `Coach analyseerde "${input.value}". Voorstel: verlaag de volgende training met 2 km.`;
-        impact.innerText = "Directe ontlasting.";
-      }
-
-      box.classList.remove('hidden');
-      lucide.createIcons();
-    }
-
-    function acceptProposal() {
-      if (pendingProposal && pendingProposal.action) pendingProposal.action();
-      document.getElementById('proposal-box').classList.add('hidden');
-      document.getElementById('coach-input').value = '';
-      pendingProposal = null;
-      saveState();
-      renderWeeks();
-      updateKPIs();
-      calculatePrognosis();
-    }
-
-    function declineProposal() {
-      document.getElementById('proposal-box').classList.add('hidden');
-      pendingProposal = null;
-    }
-
+    // ACTIVITIES LOGGING
     function submitNewActivity(e) {
       e.preventDefault();
       const date = document.getElementById('act-date').value;
@@ -1523,7 +1850,7 @@
       document.getElementById('act-time').value = '';
       document.getElementById('act-note').value = '';
 
-      showToast(`Run van ${km} km gelogd! Prognose herberekend.`);
+      showToast(`Run van ${km} km gelogd! Prognose bijgewerkt.`);
     }
 
     function deleteActivity(id) {
@@ -1540,22 +1867,28 @@
       tbody.innerHTML = '';
 
       if (loggedRuns.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-slate-500 text-xs">Nog geen runs gelogd.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500 text-xs">Nog geen runs gelogd. Start je schone lei met je volgende training!</td></tr>`;
         return;
       }
 
       loggedRuns.forEach(act => {
         const tr = document.createElement('tr');
-        tr.className = "hover:bg-[#17223b]/40 transition";
+        tr.className = "hover:bg-navy-800/40 transition";
+
+        let typeBadge = "bg-brand-500/20 text-brand-400 border-brand-500/30";
+        if (act.type === 'Herstel') typeBadge = "bg-sky-500/20 text-sky-400 border-sky-500/30";
+        if (act.type === 'Tempo') typeBadge = "bg-amber-500/20 text-amber-400 border-amber-500/30";
+        if (act.type === 'Wedstrijd') typeBadge = "bg-accent-500/20 text-accent-400 border-accent-500/30";
+
         tr.innerHTML = `
           <td class="py-3 px-3 text-white font-semibold whitespace-nowrap">${act.date}</td>
           <td class="py-3 px-3 text-white font-bold whitespace-nowrap">${act.km.toFixed(2)} km</td>
           <td class="py-3 px-3 whitespace-nowrap">${act.timeFormatted}</td>
-          <td class="py-3 px-3 text-orange-400 font-bold whitespace-nowrap">${act.paceFormatted}</td>
-          <td class="py-3 px-3 whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[10px] font-semibold border bg-orange-500/20 text-orange-400 border-orange-500/30">${act.type}</span></td>
+          <td class="py-3 px-3 text-brand-400 font-bold whitespace-nowrap">${act.paceFormatted}</td>
+          <td class="py-3 px-3 whitespace-nowrap"><span class="px-2 py-0.5 rounded text-[10px] font-semibold border ${typeBadge}">${act.type}</span></td>
           <td class="py-3 px-3 text-slate-300 text-xs max-w-xs truncate">${act.note}</td>
           <td class="py-3 px-3 text-right whitespace-nowrap">
-            <button onclick="deleteActivity(${act.id})" class="text-rose-400 hover:text-rose-300 p-1 transition"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+            <button onclick="deleteActivity(${act.id})" class="text-rose-400 hover:text-rose-300 p-1 rounded hover:bg-rose-500/10 transition"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
           </td>
         `;
         tbody.appendChild(tr);
@@ -1569,7 +1902,7 @@
       document.getElementById('status-toast-msg').innerText = msg;
       toast.classList.remove('hidden');
       lucide.createIcons();
-      setTimeout(() => { toast.classList.add('hidden'); }, 4000);
+      setTimeout(() => { toast.classList.add('hidden'); }, 4500);
     }
 
     function hideToast() {
@@ -1601,20 +1934,15 @@
       const shinElem = document.getElementById('detail-shin-tip');
 
       if (workout.type === 'run') {
-        warmElem.innerText = "2.0 km heel ontspannen inlopen (~5:40 - 5:50 /km). Doe 3x 50m lichte steigerung.";
-        coreElem.innerText = `${workout.title}: Loop op doeltempo (${workout.pace || '4:55 /km'}). Focus op een compacte pas en 175+ spm.`;
-        coolElem.innerText = "1.0 - 1.5 km rustig uitdribbelen en kuiten zacht oprekken.";
-        shinElem.innerText = "Land onder je zwaartepunt (niet met de hak voor je uitsteken) om het scheenbeenvlies te ontzien.";
+        warmElem.innerText = "2.0 km rustig inlopen (~5:45 /km). Doe 3x 50m lichte versnellingen om de kuiten los te maken.";
+        coreElem.innerText = `${workout.title}: Loop op doeltempo (${workout.pace || '5:35 /km'}). Focus op een hogere cadans (168+ stappen/min) met ontspannen schouders.`;
+        coolElem.innerText = "1.0 km rustig uitdribbelen en kuiten zacht uitstrijken.";
+        shinElem.innerText = "Kuit-tip: Veer niet op je tenen en maak geen te grote stappen. Laat je hiel bij elke pas even kort de grond aantikken zodat de kuitspier kan ontspannen.";
       } else if (workout.type === 'bike') {
         warmElem.innerText = "10 min soepel draaien op hoge cadans (90+ RPM).";
         coreElem.innerText = "Lekker tempo doormalen (27-29 km/u) voor cardio-opbouw zonder botbelasting.";
         coolElem.innerText = "5 min rustig uitbollen.";
-        shinElem.innerText = "0% botimpact! Uitstekend voor herstel van je scheenbenen.";
-      } else if (workout.type === 'hockey') {
-        warmElem.innerText = "Inslaan, versnellingen en enkels goed losmaken.";
-        coreElem.innerText = "Wendbaarheid en sprints op het veld.";
-        coolElem.innerText = "Goed uitlopen.";
-        shinElem.innerText = "Draag goede scheenbeschermers en neem na afloop voldoende rust.";
+        shinElem.innerText = "0% botimpact! Ideaal om je conditie te prikkelen terwijl je kuiten herstellen.";
       } else {
         warmElem.innerText = "10 min ontspannen dribbelen bij het startvak.";
         coreElem.innerText = "Marathondag: Eerste helft gecontroleerd op 4:58/km, doordrukken tot de finish voor sub-3:30!";
@@ -1641,7 +1969,7 @@
 
     function exportDataBackup() {
       const backupPayload = {
-        app: "MarathonPlanner2027",
+        app: "MarathonPlanner2027_Clean",
         activeRace: activeRace,
         weeks: weeks,
         loggedRuns: loggedRuns
@@ -1650,7 +1978,7 @@
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupPayload, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
-      downloadAnchor.setAttribute("download", `marathon_backup_${activeRace}_${new Date().toISOString().split('T')[0]}.json`);
+      downloadAnchor.setAttribute("download", `marathon_schema_${activeRace}_${new Date().toISOString().split('T')[0]}.json`);
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
@@ -1687,14 +2015,19 @@
     }
 
     function resetToDefaults() {
-      if (confirm(`Reset schema voor ${activeRace === 'leiden' ? 'Leiden' : 'Rotterdam'}?`)) {
-        weeks = activeRace === 'leiden' ? generateLeidenPlan() : JSON.parse(JSON.stringify(ROTTERDAM_PLAN));
+      if (confirm("Wil je het hele schema resetten en alle gelogde loopjes op 0 zetten?")) {
+        localStorage.removeItem('just_clean_leiden_v1');
+        localStorage.removeItem('just_clean_rdam_v1');
+        localStorage.removeItem('just_clean_runs_v1');
+        loggedRuns = [];
+        weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan();
         saveState();
         renderWeeks();
+        renderActivities();
         updateKPIs();
         calculatePrognosis();
         closeBackupModal();
-        showToast("Schema gereset.");
+        showToast("Alles gereset naar 0 km!");
       }
     }
   </script>
