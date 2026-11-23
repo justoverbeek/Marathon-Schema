@@ -96,7 +96,7 @@
         </div>
         <div>
           <h3 id="banner-race-title" class="text-sm font-bold text-white">Doelrace: Leiden Marathon (9 Mei 2027) 🏛️</h3>
-          <p id="banner-race-sub" class="text-xs text-slate-400">Schone start vanaf maandag 23 nov 2026 (24 weken) • Veldcompetitie voorbij • Stuur de AI Coach hieronder om je trainingen direct op maat te zetten.</p>
+          <p id="banner-race-sub" class="text-xs text-slate-400">Geleidelijke kuitvriendelijke opbouw (24 weken) • Gekoppeld aan los <code class="text-sky-400">schema.js</code> bestand • Stuur de AI Coach hieronder om direct bij te sturen.</p>
         </div>
       </div>
       <button id="btn-banner-switch" onclick="toggleRaceQuick()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-navy-850 hover:bg-navy-800 text-slate-200 border border-navy-700 transition shrink-0">
@@ -123,7 +123,7 @@
         </span>
         <div class="mt-2 flex items-baseline gap-1">
           <span id="kpi-completed-km" class="text-2xl font-black text-accent-400">0.0</span>
-          <span class="text-xs text-slate-400">/ <span id="kpi-total-km">720</span> km</span>
+          <span class="text-xs text-slate-400">/ <span id="kpi-total-km">650</span> km</span>
         </div>
         <div class="w-full bg-navy-800 h-1.5 rounded-full overflow-hidden mt-1.5">
           <div id="kpi-progress-bar" class="bg-accent-500 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
@@ -161,7 +161,7 @@
         <div class="mt-2 flex items-baseline gap-1">
           <span id="kpi-prognosis-time" class="text-2xl font-black text-accent-300">--:--:--</span>
         </div>
-        <p id="kpi-prognosis-pace" class="text-[11px] text-slate-300 font-medium mt-1">Log eerst een run</p>
+        <p id="kpi-prognosis-pace" class="text-[11px] text-slate-300 font-medium mt-1">WHS Model</p>
       </div>
     </section>
 
@@ -196,8 +196,8 @@
         <button type="button" onclick="fillPrompt('Verplaats in week 2 de dinsdag naar woensdag')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
           "Week 2 dinsdag naar woensdag"
         </button>
-        <button type="button" onclick="fillPrompt('Maak week 3 de duurloop 14 km')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
-          "Week 3 duurloop naar 14 km"
+        <button type="button" onclick="fillPrompt('Maak week 3 de duurloop 11 km')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
+          "Week 3 duurloop naar 11 km"
         </button>
         <button type="button" onclick="fillPrompt('Verlaag komende 3 weken met 20% voor mijn kuiten')" class="px-2.5 py-1 rounded-lg bg-navy-850 hover:bg-navy-800 text-slate-300 border border-navy-700 transition">
           "Komende 3 weken -20% (kuiten)"
@@ -214,7 +214,7 @@
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
           </div>
           <div class="bg-navy-950 border border-navy-800 rounded-2xl rounded-tl-none p-3.5 text-xs text-slate-200 max-w-3xl leading-relaxed">
-            Hoi Just! Je schema staat nu op <strong class="text-white">0.0 gelopen kilometers</strong> en start fris vanaf <strong class="text-white">maandag 23 november 2026</strong>. Geef hieronder gewoon in normale taal aan wat je wilt veranderen (bijv. vaste loopdagen, afstanden van een specifieke week, of minder volume voor je kuiten) en ik pas het direct aan.
+            Hoi Just! Je schema staat nu veel rustiger opgebouwd (Week 4 is nu een herstelweek van 10 km i.p.v. 17 km) en je <strong class="text-white">7,5 km run van maandag 23 nov</strong> staat er al in. Geef hieronder gerust aan als je nog dagen of afstanden wilt aanpassen!
           </div>
         </div>
       </div>
@@ -224,7 +224,7 @@
         <input 
           type="text" 
           id="coach-input" 
-          placeholder="Bijv. 'Ik wil voortaan op maandag, donderdag en zondag lopen', 'Week 1 zondag naar 9 km', of 'Zet week 6 op vakantie'..." 
+          placeholder="Bijv. 'Ik wil voortaan op maandag, donderdag en zondag lopen', 'Week 2 zondag naar 10 km', of 'Zet week 6 op vakantie'..." 
           class="flex-1 bg-navy-950 border border-navy-700/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition"
         />
         <button type="submit" class="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 transition shrink-0 shadow-lg shadow-brand-500/20">
@@ -257,10 +257,10 @@
             Fase 1: Basis & Kuit-adaptatie
           </button>
           <button onclick="filterPhase(2)" data-filter="2" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition">
-            Fase 2: Duurbouw (20 - 32 km)
+            Fase 2: Duurbouw (16 - 30 km)
           </button>
           <button onclick="filterPhase(3)" data-filter="3" class="phase-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-navy-800 transition">
-            Fase 3: Specifiek & Taper
+            Fase 3: Kroonduurloop & Taper
           </button>
         </div>
 
@@ -303,12 +303,12 @@
 
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Afstand (km)</label>
-            <input type="number" step="0.01" id="act-km" placeholder="bijv. 8.00" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
+            <input type="number" step="0.01" id="act-km" placeholder="bijv. 9.00" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
 
           <div>
             <label class="block text-[11px] font-semibold text-slate-400 mb-1">Tijd (mm:ss of uu:mm:ss)</label>
-            <input type="text" id="act-time" placeholder="bijv. 44:00" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
+            <input type="text" id="act-time" placeholder="bijv. 49:30" required class="w-full bg-navy-950 border border-navy-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500" />
           </div>
 
           <div>
@@ -343,18 +343,18 @@
             </span>
             <div>
               <h4 class="text-sm font-bold text-white">Rolling Handicap Prognose Algoritme</h4>
-              <p class="text-xs text-slate-400" id="whs-summary-text">Log je eerste training om het model te activeren.</p>
+              <p class="text-xs text-slate-400" id="whs-summary-text">Log je trainingen om het model live bij te werken.</p>
             </div>
           </div>
           <span id="whs-status-badge" class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-accent-500/20 text-accent-300 border border-accent-500/30">
-            Stand-by
+            Live Gekalibreerd
           </span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
           <div class="bg-navy-950 p-3 rounded-xl border border-navy-800">
             <span class="text-slate-400 block text-[11px]">Beste Prestaties (Sample)</span>
-            <span id="whs-runs-used" class="font-bold text-white text-sm">0 van de 0 runs</span>
+            <span id="whs-runs-used" class="font-bold text-white text-sm">1 van de 1 runs</span>
             <p class="text-[10px] text-slate-400 mt-0.5">Filtert off-days & herstelloopjes automatisch weg.</p>
           </div>
           <div class="bg-navy-950 p-3 rounded-xl border border-navy-800">
@@ -410,7 +410,7 @@
             Fysiologische Debuutprognose & Doelrace Analyse
           </h3>
           <p class="text-xs text-slate-400 mt-1">
-            Gekoppeld aan jouw actuele vorm, actieve marathon en afstandsopbouw. Log eerst een training onder 'Mijn Loopjes'.
+            Gekoppeld aan jouw actuele vorm, actieve marathon en geleidelijke afstandsopbouw.
           </p>
         </div>
 
@@ -419,28 +419,28 @@
           <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
             <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 5 KM All-Out</span>
             <div id="physio-5k" class="text-2xl font-black text-white">--:--</div>
-            <p id="physio-5k-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p id="physio-5k-pace" class="text-xs text-brand-400 font-semibold">--</p>
             <p class="text-[11px] text-slate-400">Berekend vanuit je beste recente temposessie.</p>
           </div>
 
           <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
             <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte 10 KM Wedstrijd</span>
             <div id="physio-10k" class="text-2xl font-black text-white">--:--</div>
-            <p id="physio-10k-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p id="physio-10k-pace" class="text-xs text-brand-400 font-semibold">--</p>
             <p class="text-[11px] text-slate-400">Doorgetrokken op aerobe drempelwaarde.</p>
           </div>
 
           <div class="bg-navy-950 border border-navy-800 p-4 rounded-xl space-y-1">
             <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Geschatte Halve Marathon</span>
             <div id="physio-hm" class="text-2xl font-black text-white">--:--:--</div>
-            <p id="physio-hm-pace" class="text-xs text-brand-400 font-semibold">Wacht op eerste run</p>
+            <p id="physio-hm-pace" class="text-xs text-brand-400 font-semibold">--</p>
             <p class="text-[11px] text-slate-400">Realistisch omslagpunt met je fietsconditie.</p>
           </div>
 
           <div class="bg-gradient-to-br from-accent-950/60 to-navy-950 border border-accent-500/40 p-4 rounded-xl space-y-1">
             <span class="text-[11px] uppercase tracking-wider text-accent-400 font-bold">Marathon Prognose Nu</span>
             <div id="physio-marathon-time" class="text-2xl font-black text-accent-300">--:--:--</div>
-            <p id="physio-marathon-pace" class="text-xs text-accent-400 font-bold">Wacht op eerste run</p>
+            <p id="physio-marathon-pace" class="text-xs text-accent-400 font-bold">--</p>
             <p class="text-[11px] text-slate-300">Inclusief debutantenverval op basis van langste run.</p>
           </div>
         </div>
@@ -449,10 +449,13 @@
         <div class="bg-navy-950 border border-navy-800 p-5 rounded-2xl space-y-3">
           <h4 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
             <i data-lucide="info" class="w-4 h-4 text-brand-400"></i>
-            Leiden (9 Mei) vs. Rotterdam (11 April)
+            Geleidelijke Opbouw & Kuitbescherming
           </h4>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Met <strong class="text-white">Leiden (9 mei 2027)</strong> heb je <strong class="text-sky-400">24 weken</strong> vanaf 23 november. Die 4 extra weken geven je kuiten en pezen precies de extra adaptatietijd die nodig is om richting 30–32 km te bouwen zonder kramp of overbelasting. Mocht je alsnog via herverkoop een ticket voor <strong class="text-white">Rotterdam (11 april 2027)</strong> pakken, schakel je bovenin met één klik over naar het 20-wekenschema.
+            In dit schema bouw je de lange duurloop rustig op met elke 4e week een herstelweek: <strong class="text-white">9 km $
+ightarrow$ 10,5 km $
+ightarrow$ 12 km $
+ightarrow$ 10 km (herstel)</strong>. Zo kunnen je kuiten en achillespezen zonder overbelasting wennen aan de belasting richting de 32 km piekduurloop voor Leiden (9 mei 2027).
           </p>
         </div>
 
@@ -544,7 +547,7 @@
       <div class="space-y-3 text-xs">
         <div class="bg-navy-950 p-3.5 rounded-xl border border-navy-800 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-amber-400 text-[11px] uppercase tracking-wider">
-            <i data-lucide="flame" class="w-3.5 h-3.5"></i> 1. Warming-up (15 - 20 min)
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i> 1. Warming-up (10 - 15 min)
           </div>
           <p id="detail-warmup" class="text-slate-300 leading-relaxed">
             1.5 tot 2.0 km rustig inlopen.
@@ -603,7 +606,7 @@
 
       <div class="space-y-3 text-xs">
         <p class="text-slate-300 leading-relaxed">
-          Gegevens worden bewaard in je browser. Exporteer of importeer jouw `.json` bestandje om je schema over te zetten tussen laptop en telefoon.
+          Je schema wordt automatisch ingeladen vanuit <code class="text-sky-400">schema.js</code>. Exporteer of importeer hieronder jouw persoonlijke back-up als je tussen apparaten wisselt.
         </p>
 
         <div class="bg-navy-950 p-4 rounded-xl border border-navy-800 space-y-2">
@@ -625,9 +628,9 @@
         </div>
 
         <div class="pt-2 flex justify-between items-center text-[11px]">
-          <span class="text-slate-500">Helemaal opnieuw op 0 beginnen?</span>
+          <span class="text-slate-500">Nieuwste versie van schema.js forceren?</span>
           <button onclick="resetToDefaults()" class="text-rose-400 hover:text-rose-300 font-semibold underline">
-            Reset schema & wis loopjes
+            Herlaad vanuit schema.js
           </button>
         </div>
       </div>
@@ -694,237 +697,14 @@
     </div>
   </div>
 
+  <!-- KOPPELING MET HET LOSSE SCHEMA-BESTAND -->
+  <script src="schema.js"></script>
+
   <!-- JAVASCRIPT APP ENGINE -->
   <script>
     const DAYS_ORDER = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"];
 
-    // SCHONE START VANAF MAANDAG 23 NOV 2026 (ALLE WORKOUTS OP 'planned' EN 0 GELOGDE RUNS)
-    // LEIDEN MARATHON: 9 MEI 2027 (24 WEKEN VANAF 23 NOV 2026)
-    const LEIDEN_CLEAN_PLAN = [
-      {
-        id: 1, title: "Week 1: Kuit-Adaptatie & Cadans Focus", dateRange: "23 Nov - 29 Nov 2026", phase: 1, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Ontspannen Duurloop (Cadans 168+)", type: "run", km: 7.5, originalKm: 7.5, pace: "5:35 /km", note: "Korte passen, niet op tenen veren", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Herstelrit", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "28 km/u", note: "Aerobe motor zonder botsing", status: "planned" },
-          { day: "Donderdag", title: "Rustige Duurloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Kuiten ontspannen houden", status: "planned" },
-          { day: "Zondag", title: "Zondagduurloop: 11 km", type: "run", km: 11.0, originalKm: 11.0, pace: "5:40 /km", note: "Praattempo Zone 2", status: "planned" }
-        ]
-      },
-      {
-        id: 2, title: "Week 2: Rustig Volume Opbouwen", dateRange: "30 Nov - 6 Dec 2026", phase: 1, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Kwaliteit: 4x 1km Vlot", type: "run", km: 8.5, originalKm: 8.5, pace: "4:45 /km", note: "2 km in- & uitlopen", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Duur", type: "bike", km: 32, originalKm: 32, time: "65 min", pace: "28 km/u", note: "Benen losdraaien", status: "planned" },
-          { day: "Donderdag", title: "Tussenduurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Stabiel ritme", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:35 /km", note: "Geen eindsprint forceren", status: "planned" }
-        ]
-      },
-      {
-        id: 3, title: "Week 3: Doorbouwen naar 15 km", dateRange: "7 Dec - 13 Dec 2026", phase: 1, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Marathontempo Blok: 3x 2km", type: "run", km: 9.5, originalKm: 9.5, pace: "4:55 /km", note: "90 sec wandelpauze", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Herstel", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 15 km", type: "run", km: 15.0, originalKm: 15.0, pace: "5:35 /km", note: "Eerste keer sportgel testen", status: "planned" }
-        ]
-      },
-      {
-        id: 4, title: "Week 4: De 17 km Mijlpaal", dateRange: "14 Dec - 20 Dec 2026", phase: 1, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "4x 1.5km MP Blokken", type: "run", km: 10.0, originalKm: 10.0, pace: "4:55 /km", note: "Ritme vasthouden", status: "planned" },
-          { day: "Donderdag", title: "Tussenduurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Vlot en constant", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 17 km", type: "run", km: 17.0, originalKm: 17.0, pace: "5:35 /km", note: "Vetverbranding", status: "planned" }
-        ]
-      },
-      {
-        id: 5, title: "Week 5: Kerst Herstelweek (Cutback)", dateRange: "21 Dec - 27 Dec 2026", phase: 1, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Korte Tempoprikkel", type: "run", km: 7.5, originalKm: 7.5, pace: "4:50 /km", note: "Scherpte houden", status: "planned" },
-          { day: "Donderdag", title: "Licht Duurloopje", type: "run", km: 7.0, originalKm: 7.0, pace: "5:35 /km", note: "Genieten", status: "planned" },
-          { day: "Zondag", title: "Herstelduurloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:40 /km", note: "Pees- en spierherstel", status: "planned" }
-        ]
-      },
-      {
-        id: 6, title: "Week 6: Oud & Nieuw -> 19 km", dateRange: "28 Dec - 3 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Progressieloop 9 km", type: "run", km: 9.0, originalKm: 9.0, pace: "5:25 -> 4:50 /km", note: "Laatste 3 km vlot", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Soepel", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 19 km", type: "run", km: 19.0, originalKm: 19.0, pace: "5:35 /km", note: "2 gels meenemen", status: "planned" }
-        ]
-      },
-      {
-        id: 7, title: "Week 7: De Halve Marathon Afstand (21.1 km)", dateRange: "4 Jan - 10 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "5x 1km Drempel", type: "run", km: 10.0, originalKm: 10.0, pace: "4:30 /km", note: "200m dribbelpauze", status: "planned" },
-          { day: "Donderdag", title: "Basislus", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Rustig tempo", status: "planned" },
-          { day: "Zondag", title: "Halve Marathon Duurloop: 21.1 km", type: "run", km: 21.1, originalKm: 21.1, pace: "5:35 /km", note: "Mijlpaal!", status: "planned" }
-        ]
-      },
-      {
-        id: 8, title: "Week 8: Doorbouwen naar 23 km", dateRange: "11 Jan - 17 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "3x 3km MP Blokken", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Marathontempo gevoel", status: "planned" },
-          { day: "Donderdag", title: "Herstelloop", type: "run", km: 8.5, originalKm: 8.5, pace: "5:40 /km", note: "Kuiten ontspannen", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 23 km", type: "run", km: 23.0, originalKm: 23.0, pace: "5:35 /km", note: "Drinken & gels oefenen", status: "planned" }
-        ]
-      },
-      {
-        id: 9, title: "Week 9: Cutback Herstelweek", dateRange: "18 Jan - 24 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Vlotte 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:00 /km", note: "Kort en energiek", status: "planned" },
-          { day: "Woensdag", title: "Wielrennen Los", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "28 km/u", note: "Benen los", status: "planned" },
-          { day: "Zondag", title: "Herstel Duurloop: 16 km", type: "run", km: 16.0, originalKm: 16.0, pace: "5:35 /km", note: "Supercompensatie", status: "planned" }
-        ]
-      },
-      {
-        id: 10, title: "Week 10: De 25 km Barrière", dateRange: "25 Jan - 31 Jan 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Piramideloop (1-2-3-2-1 km)", type: "run", km: 11.5, originalKm: 11.5, pace: "4:35 - 4:50 /km", note: "Intensieve prikkel", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.5, originalKm: 9.5, pace: "5:30 /km", note: "Constant ritme", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 25 km", type: "run", km: 25.0, originalKm: 25.0, pace: "5:35 /km", note: "Grote psychologische stap", status: "planned" }
-        ]
-      },
-      {
-        id: 11, title: "Week 11: Opbouw naar 27 km", dateRange: "1 Feb - 7 Feb 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "2x 5km MP Blokken", type: "run", km: 13.0, originalKm: 13.0, pace: "4:58 /km", note: "Marathonspecifiek", status: "planned" },
-          { day: "Donderdag", title: "Losloopronde", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 27 km", type: "run", km: 27.0, originalKm: 27.0, pace: "5:35 /km", note: "Vetverbranding op de proef", status: "planned" }
-        ]
-      },
-      {
-        id: 12, title: "Week 12: Tempohardheid -> 29 km", dateRange: "8 Feb - 14 Feb 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "6x 1km Drempel", type: "run", km: 11.0, originalKm: 11.0, pace: "4:25 /km", note: "VO2max", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Sparen voor zondag", status: "planned" },
-          { day: "Zondag", title: "Monsterduurloop: 29 km", type: "run", km: 29.0, originalKm: 29.0, pace: "5:35 /km", note: "Tijd op je voeten", status: "planned" }
-        ]
-      },
-      {
-        id: 13, title: "Week 13: Cutback Herstelweek", dateRange: "15 Feb - 21 Feb 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Rustig Loslopen", type: "run", km: 8.5, originalKm: 8.5, pace: "5:35 /km", note: "Herstel van 29k", status: "planned" },
-          { day: "Donderdag", title: "Wielrennen Duur", type: "bike", km: 35, originalKm: 35, time: "70 min", pace: "28 km/u", note: "Losse benen", status: "planned" },
-          { day: "Zondag", title: "Gecontroleerde Duurloop: 18 km", type: "run", km: 18.0, originalKm: 18.0, pace: "5:30 /km", note: "Vorm vasthouden", status: "planned" }
-        ]
-      },
-      {
-        id: 14, title: "Week 14: Eerste Dertiger (30 km)", dateRange: "22 Feb - 28 Feb 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "4x 2km MP Blokken", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Strak ritme", status: "planned" },
-          { day: "Donderdag", title: "Basislus", type: "run", km: 9.0, originalKm: 9.0, pace: "5:35 /km", note: "Zone 2", status: "planned" },
-          { day: "Zondag", title: "Lange Duurloop: 30 km", type: "run", km: 30.0, originalKm: 30.0, pace: "5:35 /km", note: "Groene Hart simulatie", status: "planned" }
-        ]
-      },
-      {
-        id: 15, title: "Week 15: Marathonsnelheid Test", dateRange: "1 Mar - 7 Mar 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "12 km met 8 km op 4:55 /km", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Voelt natuurlijk", status: "planned" },
-          { day: "Donderdag", title: "Lichte Duurloop", type: "run", km: 9.0, originalKm: 9.0, pace: "5:30 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Duurloop met MP Finish: 26 km", type: "run", km: 26.0, originalKm: 26.0, pace: "21k @ 5:35 + 5k @ 4:58", note: "Simulatie", status: "planned" }
-        ]
-      },
-      {
-        id: 16, title: "Week 16: DE KROONDUURLOOP: 32 KM", dateRange: "8 Mar - 14 Mar 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Korte Prikkels", type: "run", km: 8.5, originalKm: 8.5, pace: "4:45 /km", note: "Energie sparen", status: "planned" },
-          { day: "Donderdag", title: "Loslooprondje", type: "run", km: 7.5, originalKm: 7.5, pace: "5:35 /km", note: "Losse benen", status: "planned" },
-          { day: "Zondag", title: "DE KROONDUURLOOP: 32 KM", type: "run", km: 32.0, originalKm: 32.0, pace: "5:35 /km", note: "Piekduurloop!", status: "planned" }
-        ]
-      },
-      {
-        id: 17, title: "Week 17: Herstel na 32 km", dateRange: "15 Mar - 21 Mar 2027", phase: 2, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Rustig Loslopen", type: "run", km: 8.0, originalKm: 8.0, pace: "5:35 /km", note: "Herstel", status: "planned" },
-          { day: "Donderdag", title: "Wielrennen Los", type: "bike", km: 30, originalKm: 30, time: "60 min", pace: "27 km/u", note: "Cardio", status: "planned" },
-          { day: "Zondag", title: "Gecontroleerde 20 km", type: "run", km: 20.0, originalKm: 20.0, pace: "5:30 /km", note: "Vorm vasthouden", status: "planned" }
-        ]
-      },
-      {
-        id: 18, title: "Week 18: Laatste Zware Dertiger", dateRange: "22 Mar - 28 Mar 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "4x 2km op MP", type: "run", km: 11.5, originalKm: 11.5, pace: "4:55 /km", note: "Sterk en rechtop lopen", status: "planned" },
-          { day: "Donderdag", title: "Zone 2 Duur", type: "run", km: 8.5, originalKm: 8.5, pace: "5:30 /km", note: "Soepel", status: "planned" },
-          { day: "Zondag", title: "Laatste Dertiger: 30 km", type: "run", km: 30.0, originalKm: 30.0, pace: "5:35 /km", note: "Definitieve cheque", status: "planned" }
-        ]
-      },
-      {
-        id: 19, title: "Week 19: Specifieke MP-Prikkel", dateRange: "29 Mar - 4 Apr 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "3x 3km op MP", type: "run", km: 12.0, originalKm: 12.0, pace: "4:55 /km", note: "Wedstrijdritme", status: "planned" },
-          { day: "Donderdag", title: "Rustig Rondje", type: "run", km: 8.0, originalKm: 8.0, pace: "5:35 /km", note: "Ontspannen", status: "planned" },
-          { day: "Zondag", title: "Gecontroleerde 25 km", type: "run", km: 25.0, originalKm: 25.0, pace: "5:30 /km", note: "Laatste keer vermoeidheid", status: "planned" }
-        ]
-      },
-      {
-        id: 20, title: "Week 20: Tussenfase voor Taper", dateRange: "5 Apr - 11 Apr 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "5x 1km Vlot", type: "run", km: 9.5, originalKm: 9.5, pace: "4:30 /km", note: "Snelheid behouden", status: "planned" },
-          { day: "Donderdag", title: "Loslooprondje", type: "run", km: 8.0, originalKm: 8.0, pace: "5:30 /km", note: "Soepel", status: "planned" },
-          { day: "Zondag", title: "Duurloop: 22 km", type: "run", km: 22.0, originalKm: 22.0, pace: "5:25 - 5:30 /km", note: "Krachtig afronden", status: "planned" }
-        ]
-      },
-      {
-        id: 21, title: "Week 21: Taper Week 1 (-25% Volume)", dateRange: "12 Apr - 18 Apr 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "8 km met 4 km op MP", type: "run", km: 8.0, originalKm: 8.0, pace: "4:55 /km", note: "Scherpte houden", status: "planned" },
-          { day: "Donderdag", title: "Kort Loslopen", type: "run", km: 6.0, originalKm: 6.0, pace: "5:35 /km", note: "Geen zware benen", status: "planned" },
-          { day: "Zondag", title: "Taper Duurloop: 18 km", type: "run", km: 18.0, originalKm: 18.0, pace: "5:30 /km", note: "Voelt heerlijk licht!", status: "planned" }
-        ]
-      },
-      {
-        id: 22, title: "Week 22: Taper Week 2 (-45% Volume)", dateRange: "19 Apr - 25 Apr 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Korte Prikkels: 3x 1km", type: "run", km: 6.5, originalKm: 6.5, pace: "4:50 /km", note: "Spanning op de benen", status: "planned" },
-          { day: "Donderdag", title: "Koffierondje 5 km", type: "run", km: 5.0, originalKm: 5.0, pace: "5:35 /km", note: "Heel relaxed", status: "planned" },
-          { day: "Zondag", title: "Korte Zondagloop: 13 km", type: "run", km: 13.0, originalKm: 13.0, pace: "5:30 /km", note: "Energie opsparen", status: "planned" }
-        ]
-      },
-      {
-        id: 23, title: "Week 23: Taper Week 3 (-65% Volume)", dateRange: "26 Apr - 2 Mei 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "5 km met 3 Steigerungs", type: "run", km: 5.0, originalKm: 5.0, pace: "4:55 /km", note: "Snelheid voelen", status: "planned" },
-          { day: "Donderdag", title: "Koffierondje 4 km", type: "run", km: 4.0, originalKm: 4.0, pace: "5:40 /km", note: "Bloedsomloop", status: "planned" },
-          { day: "Zondag", title: "Kort Testloopje: 8 km", type: "run", km: 8.0, originalKm: 8.0, pace: "5:20 /km", note: "Carboloaden voorbereiden", status: "planned" }
-        ]
-      },
-      {
-        id: 24, title: "Week 24: RACE WEEK LEIDEN! 🏁", dateRange: "3 Mei - 9 Mei 2027", phase: 3, isOffWeek: false,
-        workouts: [
-          { day: "Dinsdag", title: "Shakeout Run", type: "run", km: 4.0, originalKm: 4.0, pace: "5:30 met 3x 100m MP", note: "Zenuwen loslopen", status: "planned" },
-          { day: "Donderdag", title: "Spieractivatie 3 km", type: "run", km: 3.0, originalKm: 3.0, pace: "5:40 /km", note: "15 min losjes bewegen", status: "planned" },
-          { day: "Vrijdag", title: "Rust & Koolhydraten laden", type: "other", km: 0, originalKm: 0, note: "Pasta, pannenkoeken, sportdrank", status: "planned" },
-          { day: "Zaterdag", title: "Rust & Kleding klaarleggen", type: "other", km: 0, originalKm: 0, note: "Vroeg slapen!", status: "planned" },
-          { day: "Zondag 9 Mei", title: "LEIDEN MARATHON 🏛️", type: "race", km: 42.2, originalKm: 42.2, pace: "4:58 /km doel", note: "Finish op de Vismarkt! Sub-3:30!", status: "planned" }
-        ]
-      }
-    ];
-
-    // ROTTERDAM: 11 APRIL 2027 (20 WEKEN VANAF 23 NOV 2026)
-    function generateRotterdamCleanPlan() {
-      const base = JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN));
-      const part1 = base.slice(0, 16);
-      const part2 = base.slice(20, 24).map((w, idx) => {
-        w.id = 17 + idx;
-        if (w.id === 17) { w.title = "Week 17: Taper Week 1 (-25%)"; w.dateRange = "15 Mar - 21 Mar 2027"; }
-        if (w.id === 18) { w.title = "Week 18: Taper Week 2 (-45%)"; w.dateRange = "22 Mar - 28 Mar 2027"; }
-        if (w.id === 19) { w.title = "Week 19: Taper Week 3 (-65%)"; w.dateRange = "29 Mar - 4 Apr 2027"; }
-        if (w.id === 20) {
-          w.title = "Week 20: RACE WEEK ROTTERDAM! 🏁";
-          w.dateRange = "5 Apr - 11 Apr 2027";
-          const rWo = w.workouts.find(x => x.type === 'race');
-          if (rWo) {
-            rWo.day = "Zondag 11 April";
-            rWo.title = "NN MARATHON ROTTERDAM";
-            rWo.note = "Finish op de Coolsingel! Sub-3:30!";
-          }
-        }
-        return w;
-      });
-      return [...part1, ...part2];
-    }
-
-    // STATE VARIABLES (START SCHOON: 0 RUNS)
+    // STATE VARIABLES
     let activeRace = 'leiden';
     let weeks = [];
     let currentFilter = 'all';
@@ -946,12 +726,22 @@
     });
 
     function loadState() {
-      const savedRace = localStorage.getItem('just_clean_active_race');
+      const savedVersion = localStorage.getItem('just_schema_version');
+      const currentVersion = (typeof SCHEMA_VERSION !== 'undefined') ? SCHEMA_VERSION : 'v1';
+
+      // Als schema.js op GitHub is bijgewerkt naar een nieuwe versie, ververs dan het schema maar behoud eigen runs!
+      if (savedVersion !== currentVersion) {
+        localStorage.removeItem('just_modular_leiden');
+        localStorage.removeItem('just_modular_rdam');
+        localStorage.setItem('just_schema_version', currentVersion);
+      }
+
+      const savedRace = localStorage.getItem('just_modular_active_race');
       if (savedRace === 'leiden' || savedRace === 'rotterdam') {
         activeRace = savedRace;
       }
 
-      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
+      const storageKey = activeRace === 'leiden' ? 'just_modular_leiden' : 'just_modular_rdam';
       const saved = localStorage.getItem(storageKey);
       if (saved) {
         try { 
@@ -963,19 +753,19 @@
         weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan();
       }
 
-      const savedRuns = localStorage.getItem('just_clean_runs_v1');
+      const savedRuns = localStorage.getItem('just_modular_runs');
       if (savedRuns) {
         try { loggedRuns = JSON.parse(savedRuns); } catch(e) { loggedRuns = []; }
       } else {
-        loggedRuns = [];
+        loggedRuns = (typeof INITIAL_LOGGED_RUNS !== 'undefined') ? JSON.parse(JSON.stringify(INITIAL_LOGGED_RUNS)) : [];
       }
     }
 
     function saveState() {
-      localStorage.setItem('just_clean_active_race', activeRace);
-      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
+      localStorage.setItem('just_modular_active_race', activeRace);
+      const storageKey = activeRace === 'leiden' ? 'just_modular_leiden' : 'just_modular_rdam';
       localStorage.setItem(storageKey, JSON.stringify(weeks));
-      localStorage.setItem('just_clean_runs_v1', JSON.stringify(loggedRuns));
+      localStorage.setItem('just_modular_runs', JSON.stringify(loggedRuns));
     }
 
     function switchRaceTarget(race) {
@@ -984,7 +774,7 @@
       activeRace = race;
       currentFilter = 'all';
       
-      const storageKey = activeRace === 'leiden' ? 'just_clean_leiden_v1' : 'just_clean_rdam_v1';
+      const storageKey = activeRace === 'leiden' ? 'just_modular_leiden' : 'just_modular_rdam';
       const saved = localStorage.getItem(storageKey);
       if (saved) {
         try { weeks = JSON.parse(saved); }
@@ -1034,8 +824,8 @@
         ? "Doelrace: NN Marathon Rotterdam (11 April 2027)" 
         : "Doelrace: Leiden Marathon (9 Mei 2027) 🏛️";
       document.getElementById('banner-race-sub').innerText = isRdam 
-        ? "Schone start vanaf maandag 23 nov 2026 (20 weken) • Mocht je via herverkoop een ticket pakken, staat dit schema klaar." 
-        : "Schone start vanaf maandag 23 nov 2026 (24 weken) • Veldcompetitie voorbij • Stuur de AI Coach hieronder om je trainingen direct op maat te zetten.";
+        ? "Geleidelijke opbouw (20 weken) • Gekoppeld aan los schema.js bestand • Mocht je via herverkoop een ticket pakken, staat dit schema klaar." 
+        : "Geleidelijke kuitvriendelijke opbouw (24 weken) • Gekoppeld aan los schema.js bestand • Stuur de AI Coach hieronder om direct bij te sturen.";
       document.getElementById('btn-banner-switch').innerText = isRdam ? "Wissel naar Leiden" : "Wissel naar Rotterdam";
 
       document.getElementById('kpi-weeks-total').innerText = weeks.length;
@@ -1361,7 +1151,7 @@
                 <button onclick="executeChatAction('${actionId}', this)" class="px-3.5 py-1.5 rounded-xl bg-accent-600 hover:bg-accent-500 text-white font-bold text-[11px] flex items-center gap-1.5 transition shadow-md">
                   <i data-lucide="check" class="w-3.5 h-3.5"></i> Doorvoeren in schema
                 </button>
-                <button onclick="this.parentElement.innerHTML='<span class=\\'text-[11px] text-slate-500 italic\\'>Geannuleerd.</span>'" class="px-3 py-1.5 rounded-xl bg-navy-850 hover:bg-navy-800 text-slate-400 text-[11px] font-semibold border border-navy-700 transition">
+                <button onclick="this.parentElement.innerHTML='<span class=\'text-[11px] text-slate-500 italic\'>Geannuleerd.</span>'" class="px-3 py-1.5 rounded-xl bg-navy-850 hover:bg-navy-800 text-slate-400 text-[11px] font-semibold border border-navy-700 transition">
                   Niet doen
                 </button>
               </div>
@@ -1455,13 +1245,13 @@
           `Begrepen! Je wilt je hardlooptrainingen voortaan op <strong class="text-white">${chosenDays.join(', ')}</strong> plannen. Ik verdeel alle geplande hardloopsessies in elke week over deze ${chosenDays.length} vaste dagen.`,
           () => {
             weeks.forEach(w => {
-              const runs = w.workouts.filter(wo => wo.type === 'run');
+              const runs = w.workouts.filter(wo => wo.type === 'run' && wo.status === 'planned');
               runs.forEach((r, idx) => {
                 r.day = chosenDays[idx % chosenDays.length];
               });
               sortWeekWorkouts(w);
             });
-            showToast(`Alle looptrainingen herverdeeld over: ${chosenDays.join(', ')}.`);
+            showToast(`Alle geplande looptrainingen herverdeeld over: ${chosenDays.join(', ')}.`);
           }
         );
         return;
@@ -1639,7 +1429,7 @@
         `Ik heb je bericht gelezen, maar weet nog niet 100% zeker welke concrete wijziging je bedoelt. Je kunt me heel direct aansturen met opdrachten zoals:<br>
         • <em>"Ik wil voortaan op maandag, donderdag en zondag lopen"</em><br>
         • <em>"Verplaats in week 2 de dinsdag naar woensdag"</em><br>
-        • <em>"Maak week 3 de duurloop 14 km"</em><br>
+        • <em>"Maak week 3 de duurloop 11 km"</em><br>
         • <em>"Verlaag de komende 3 weken met 20% voor mijn kuiten"</em><br>
         • <em>"Haal alle fietsritten eruit"</em> of <em>"Zet week 5 op vakantie"</em>`
       );
@@ -1867,7 +1657,7 @@
       tbody.innerHTML = '';
 
       if (loggedRuns.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500 text-xs">Nog geen runs gelogd. Start je schone lei met je volgende training!</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500 text-xs">Nog geen runs gelogd.</td></tr>`;
         return;
       }
 
@@ -1934,7 +1724,7 @@
       const shinElem = document.getElementById('detail-shin-tip');
 
       if (workout.type === 'run') {
-        warmElem.innerText = "2.0 km rustig inlopen (~5:45 /km). Doe 3x 50m lichte versnellingen om de kuiten los te maken.";
+        warmElem.innerText = "8–10 min op de hometrainer (85 RPM) of 1.5 km heel rustig inlopen (~5:45 /km).";
         coreElem.innerText = `${workout.title}: Loop op doeltempo (${workout.pace || '5:35 /km'}). Focus op een hogere cadans (168+ stappen/min) met ontspannen schouders.`;
         coolElem.innerText = "1.0 km rustig uitdribbelen en kuiten zacht uitstrijken.";
         shinElem.innerText = "Kuit-tip: Veer niet op je tenen en maak geen te grote stappen. Laat je hiel bij elke pas even kort de grond aantikken zodat de kuitspier kan ontspannen.";
@@ -1943,6 +1733,11 @@
         coreElem.innerText = "Lekker tempo doormalen (27-29 km/u) voor cardio-opbouw zonder botbelasting.";
         coolElem.innerText = "5 min rustig uitbollen.";
         shinElem.innerText = "0% botimpact! Ideaal om je conditie te prikkelen terwijl je kuiten herstellen.";
+      } else if (workout.type === 'hockey') {
+        warmElem.innerText = "Goede wedstrijdwarming-up met sprintjes en dynamische rek.";
+        coreElem.innerText = "Hockeywedstrijd: Vangt de zondagbelasting op zonder extra duurloop-kilometers.";
+        coolElem.innerText = "Goed uitlopen en direct warm douchen / herstellen.";
+        shinElem.innerText = "Explosieve sprints in hockey belasten de kuiten flink; neem maandag rust.";
       } else {
         warmElem.innerText = "10 min ontspannen dribbelen bij het startvak.";
         coreElem.innerText = "Marathondag: Eerste helft gecontroleerd op 4:58/km, doordrukken tot de finish voor sub-3:30!";
@@ -1969,7 +1764,8 @@
 
     function exportDataBackup() {
       const backupPayload = {
-        app: "MarathonPlanner2027_Clean",
+        app: "MarathonPlanner2027_Modular",
+        schemaVersion: (typeof SCHEMA_VERSION !== 'undefined') ? SCHEMA_VERSION : 'v2',
         activeRace: activeRace,
         weeks: weeks,
         loggedRuns: loggedRuns
@@ -2015,19 +1811,16 @@
     }
 
     function resetToDefaults() {
-      if (confirm("Wil je het hele schema resetten en alle gelogde loopjes op 0 zetten?")) {
-        localStorage.removeItem('just_clean_leiden_v1');
-        localStorage.removeItem('just_clean_rdam_v1');
-        localStorage.removeItem('just_clean_runs_v1');
-        loggedRuns = [];
+      if (confirm("Wil je het schema opnieuw inladen vanuit schema.js (je gelogde loopjes blijven behouden)?")) {
+        localStorage.removeItem('just_modular_leiden');
+        localStorage.removeItem('just_modular_rdam');
         weeks = activeRace === 'leiden' ? JSON.parse(JSON.stringify(LEIDEN_CLEAN_PLAN)) : generateRotterdamCleanPlan();
         saveState();
         renderWeeks();
-        renderActivities();
         updateKPIs();
         calculatePrognosis();
         closeBackupModal();
-        showToast("Alles gereset naar 0 km!");
+        showToast("Schema vers ingeladen vanuit schema.js!");
       }
     }
   </script>
